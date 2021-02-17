@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -20,14 +21,27 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <include layout="@layout/content_main" />
+    <include
+        android:id="@+id/include"
+        layout="@layout/content_main" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
+        android:id="@+id/find_gift_button"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+        android:adjustViewBounds="false"
+        android:backgroundTint="#FF0000"
+        android:contentDescription="@string/find_present_button"
+        android:cropToPadding="false"
+        android:foreground="@android:drawable/ic_menu_delete"
+        android:foregroundGravity="center"
+        app:borderWidth="2dp"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center"
+        app:pressedTranslationZ="6dp"
+        app:rippleColor="#FFFFFF"
+        app:srcCompat="@android:drawable/ic_menu_delete"
+        app:useCompatPadding="true" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
