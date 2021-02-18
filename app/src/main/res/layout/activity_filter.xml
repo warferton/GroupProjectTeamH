@@ -7,6 +7,17 @@
     tools:context=".filter">
 
     <View
+        android:id="@+id/divider1_filter2"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="?android:attr/listDivider"
+        android:scrollbarSize="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/user_list"
+        app:layout_constraintVertical_bias="0.335"
+        tools:layout_editor_absoluteX="-3dp" />
+
+    <View
         android:id="@+id/view2"
         android:layout_width="419dp"
         android:layout_height="72dp"
@@ -74,4 +85,79 @@
         app:layout_constraintTop_toBottomOf="@+id/user_list"
         app:layout_constraintVertical_bias="0.029"
         tools:layout_editor_absoluteX="-3dp" />
+
+    <TextView
+        android:id="@+id/budget_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/budget_user"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider1_filter"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <SeekBar
+        android:id="@+id/seekBar_budget"
+        android:layout_width="304dp"
+        android:layout_height="60dp"
+        android:progressBackgroundTint="#070707"
+        android:scrollbarSize="2dp"
+        android:thumbTint="#A3FF0000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/budget_filter"
+        app:layout_constraintVertical_bias="0.063" />
+
+    <TextView
+        android:id="@+id/user_budget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/set_budget"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/seekBar_budget"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/budget_filter"
+        app:layout_constraintVertical_bias="0.169" />
+
+    <TextView
+        android:id="@+id/dollar_sign1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dollar_1"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toEndOf="@+id/seekBar_budget"
+        app:layout_constraintTop_toBottomOf="@+id/divider1_filter"
+        app:layout_constraintVertical_bias="0.174" />
+
+    <TextView
+        android:id="@+id/dollar_sign2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/dollar_2"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/seekBar_budget"
+        app:layout_constraintHorizontal_bias="0.615"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/budget_filter"
+        app:layout_constraintVertical_bias="0.09" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

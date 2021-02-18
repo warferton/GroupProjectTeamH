@@ -9,5 +9,10 @@
     <string name="create_your_list">Create Your List</string>
     <string name="list_name">What is the name of your list&#8230;</string>
     <string name="user_list">Type something&#8230;</string>
+    <string name="amount_budget">$5</string>
+    <string name="budget_user">What is your budget?</string>
+    <string name="set_budget">$5</string>
+    <string name="dollar_1">$</string>
+    <string name="dollar_2">$</string>
 
 </resources>
