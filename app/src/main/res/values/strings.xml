@@ -14,5 +14,8 @@
     <string name="set_budget">$5</string>
     <string name="dollar_1">$</string>
     <string name="dollar_2">$</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 
 </resources>
