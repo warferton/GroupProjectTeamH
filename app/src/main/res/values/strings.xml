@@ -6,20 +6,6 @@
     <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
-    <string name="create_your_list">Create Your List</string>
-    <string name="list_name">What is the name of your list&#8230;</string>
-    <string name="user_list">Type something&#8230;</string>
-    <string name="amount_budget">$5</string>
-    <string name="budget_user">What is your budget?</string>
-    <string name="set_budget">$5</string>
-    <string name="dollar_1">$</string>
-    <string name="dollar_2">$</string>
-    <string name="gender">Gender</string>
-    <string name="male">Male</string>
-    <string name="female">Female</string>
-    <string name="kid">Kid</string>
-    <string name="young">Young</string>
-    <string name="adult">Adult</string>
-    <string name="senior">Senior</string>
+
 
 </resources>

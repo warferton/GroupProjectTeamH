@@ -4,10 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void  openFilterActivity() {
-        Intent intent = new Intent(this, filter.class);
+        Intent intent = new Intent(this, FilterPageActivity.class);
         startActivity(intent);
     }
 
