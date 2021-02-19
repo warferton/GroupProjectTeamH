@@ -21,7 +21,7 @@ public class filter extends AppCompatActivity {
         seekBar = (SeekBar)findViewById(R.id.seekBar_budget);
         seekBar.setProgress(5);
         seekBar.incrementProgressBy(5);
-        seekBar.setMax(4995);
+        seekBar.setMax(1995);
         textView = (TextView)findViewById(R.id.user_budget);
 
 

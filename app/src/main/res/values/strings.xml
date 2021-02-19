@@ -17,5 +17,9 @@
     <string name="gender">Gender</string>
     <string name="male">Male</string>
     <string name="female">Female</string>
+    <string name="kid">Kid</string>
+    <string name="young">Young</string>
+    <string name="adult">Adult</string>
+    <string name="senior">Senior</string>
 
 </resources>
