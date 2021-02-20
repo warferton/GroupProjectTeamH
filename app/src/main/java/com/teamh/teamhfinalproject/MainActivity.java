@@ -4,9 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.teamh.teamhfinalproject.ui.activities.FilterPageActivity;
+import com.teamh.teamhfinalproject.ui.activities.TermsAndConditionsActivity;
 
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -35,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
                 openFilterActivity();
             }
         });
+        Button terms_button = findViewById(R.id.nav_button_terms);
+        terms_button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openTermsAndConditionsActivity();
+            }
+        });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -51,6 +61,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void  openFilterActivity() {
         Intent intent = new Intent(this, FilterPageActivity.class);
+        startActivity(intent);
+    }
+
+    public void openTermsAndConditionsActivity(){
+        Intent intent = new Intent(this, TermsAndConditionsActivity.class);
         startActivity(intent);
     }
 

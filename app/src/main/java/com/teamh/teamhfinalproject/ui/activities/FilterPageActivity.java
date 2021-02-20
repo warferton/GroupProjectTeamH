@@ -1,10 +1,12 @@
-package com.teamh.teamhfinalproject;
+package com.teamh.teamhfinalproject.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.teamh.teamhfinalproject.R;
 
 public class FilterPageActivity extends AppCompatActivity {
 
