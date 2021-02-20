@@ -5,4 +5,5 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="find_present_button">find_present_button</string>
     <string name="terms_conditions"><![CDATA[Terms & Conditions]]></string>
+    <string name="find_gift_button_text">Find\n<br/>Your\n<br/>Perfect Gift</string>
 </resources>
