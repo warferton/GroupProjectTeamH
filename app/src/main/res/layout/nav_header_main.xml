@@ -14,22 +14,31 @@
 
     <ImageView
         android:id="@+id/sidebar_gift_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_gravity="center|center_vertical"
         android:contentDescription="@string/nav_header_desc"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
-        app:srcCompat="@mipmap/ic_launcher_round" />
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/gift_image_white" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="@string/nav_header_title"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        android:typeface="serif" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/terms_and_conditions_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/nav_header_subtitle" />
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="@string/nav_header_subtitle"
+        android:textSize="12sp" />
 </LinearLayout>

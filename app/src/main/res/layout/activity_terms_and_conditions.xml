@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FF1010"
+    android:fadingEdge="vertical"
+    android:fadingEdgeLength="100dp"
+    android:scrollbarFadeDuration="150">
+
+    <View
+        android:id="@+id/divider_top"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#FF0000"
+        android:backgroundTint="#A39F0000"
+        app:layout_constraintBottom_toTopOf="@+id/terms_and_conditions_nested_scroll_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
+        android:id="@+id/terms_and_conditions_nested_scroll_view"
         android:layout_width="0dp"
         android:layout_height="600dp"
+        android:background="#FFFFFF"
         android:fillViewport="false"
+        android:requiresFadingEdge="vertical"
+        android:fadingEdgeLength="150dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,7 +39,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/terms_and_conditions_text_view"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fadeScrollbars="true"
@@ -31,6 +48,7 @@
                 android:paddingVertical="35dp"
                 android:paddingLeft="20dp"
                 android:paddingRight="20dp"
+                android:requiresFadingEdge="vertical"
                 android:scrollHorizontally="false"
                 android:text="@string/terms_and_conditions_text"
                 android:textAlignment="viewStart"
@@ -40,44 +58,33 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="#FF0000"
-        android:backgroundTint="#FF0000"
-        android:backgroundTintMode="add"
-        android:fontFamily="sans-serif-condensed"
-        android:includeFontPadding="true"
-        android:paddingHorizontal="45dp"
-        android:paddingVertical="20dp"
-        android:text="@string/agreement_button"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:iconTint="#FF0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider_bottom" />
-
     <View
         android:id="@+id/divider_bottom"
         android:layout_width="match_parent"
         android:layout_height="10dp"
-        android:background="#FF0000"
-        android:backgroundTint="#A3FF0000"
+        android:background="#590303"
+        android:backgroundTint="#A39F0000"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nestedScrollView" />
+        app:layout_constraintTop_toBottomOf="@+id/terms_and_conditions_nested_scroll_view" />
 
-    <View
-        android:id="@+id/divider_top"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="#FF0000"
-        android:backgroundTint="#D50000"
-        app:layout_constraintBottom_toTopOf="@+id/nestedScrollView"
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:backgroundTint="@color/button_background_color"
+        android:fontFamily="sans-serif-condensed"
+        android:gravity="center"
+        android:includeFontPadding="true"
+        android:paddingHorizontal="45dp"
+        android:paddingVertical="15dp"
+        android:text="@string/agreement_button"
+        android:textColor="@color/button_text_color"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
