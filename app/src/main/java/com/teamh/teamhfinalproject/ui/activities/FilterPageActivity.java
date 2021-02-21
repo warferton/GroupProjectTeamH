@@ -2,11 +2,15 @@ package com.teamh.teamhfinalproject.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.teamh.teamhfinalproject.R;
+import com.teamh.teamhfinalproject.ui.activities.GiftListPageActivity;
 
 public class FilterPageActivity extends AppCompatActivity {
 
@@ -20,6 +24,15 @@ public class FilterPageActivity extends AppCompatActivity {
 
         try { this.getSupportActionBar().hide(); }
             catch (NullPointerException e){ e.printStackTrace();}
+
+        //finish button which redirects user to GifltList layout
+        Button finishButton = (Button)findViewById(R.id.finish_button);
+        finishButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openGiftListPageActivity();
+            }
+        });
 
         seekBar = findViewById(R.id.seekBar_budget);
         seekBar.setProgress(5);
@@ -46,4 +59,11 @@ public class FilterPageActivity extends AppCompatActivity {
             }
         });
     }
+
+    //class for starting GiftListPageActivity to open GiftList layout
+    public void openGiftListPageActivity(){
+        Intent intent = new Intent(this, GiftListPageActivity.class);
+        startActivity(intent);
+    }
+
 }
