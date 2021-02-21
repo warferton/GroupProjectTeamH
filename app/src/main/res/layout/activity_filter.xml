@@ -1,294 +1,316 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_filter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.activities.FilterPageActivity">
+    tools:context=".ui.activities.FilterPageActivity"
+    android:orientation="vertical"
+    android:scrollbarFadeDuration="150"
+   >
 
-    <TextView
-        android:id="@+id/gender_filter2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Age Group"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider1_filter3"
-        app:layout_constraintVertical_bias="0.158" />
-
-    <View
-        android:id="@+id/divider1_filter3"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="?android:attr/listDivider"
-        android:scrollbarSize="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_list"
-        app:layout_constraintVertical_bias="0.656"
-        tools:layout_editor_absoluteX="5dp" />
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/gender_filter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/gender"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider1_filter"
-        app:layout_constraintVertical_bias="0.391" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <View
-        android:id="@+id/divider1_filter2"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="?android:attr/listDivider"
-        android:scrollbarSize="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_list"
-        app:layout_constraintVertical_bias="0.335"
-        tools:layout_editor_absoluteX="-3dp" />
-
-    <View
-        android:id="@+id/view2"
-        android:layout_width="419dp"
-        android:layout_height="72dp"
-        android:background="#FF0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/title_filter_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/create_your_list"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.023" />
-
-    <TextView
-        android:id="@+id/list_name_filter"
-        android:layout_width="373dp"
-        android:layout_height="25dp"
-        android:text="@string/list_name"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        app:layout_constraintVertical_bias="0.042" />
-
-    <EditText
-        android:id="@+id/user_list"
-        android:layout_width="226dp"
-        android:layout_height="41dp"
-        android:autofillHints="ekd"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/user_list"
-        android:textColor="#32151414"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.205"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/list_name_filter"
-        app:layout_constraintVertical_bias="0.026" />
-
-    <View
-        android:id="@+id/divider1_filter"
-        android:layout_width="match_parent"
-        android:layout_height="3dp"
-        android:background="?android:attr/listDivider"
-        android:scrollbarSize="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_list"
-        app:layout_constraintVertical_bias="0.029"
-        tools:layout_editor_absoluteX="-3dp" />
-
-    <TextView
-        android:id="@+id/budget_filter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/budget_user"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.066"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider1_filter"
-        app:layout_constraintVertical_bias="0.043" />
-
-    <SeekBar
-        android:id="@+id/seekBar_budget"
-        android:layout_width="304dp"
-        android:layout_height="60dp"
-        android:progressBackgroundTint="#070707"
-        android:scrollbarSize="2dp"
-        android:thumbTint="#A3FF0000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budget_filter"
-        app:layout_constraintVertical_bias="0.063" />
-
-    <TextView
-        android:id="@+id/user_budget"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/set_budget"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/seekBar_budget"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budget_filter"
-        app:layout_constraintVertical_bias="0.169" />
-
-    <TextView
-        android:id="@+id/dollar_sign1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/dollar_1"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.45"
-        app:layout_constraintStart_toEndOf="@+id/seekBar_budget"
-        app:layout_constraintTop_toBottomOf="@+id/divider1_filter"
-        app:layout_constraintVertical_bias="0.174" />
-
-    <TextView
-        android:id="@+id/dollar_sign2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/dollar_2"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/seekBar_budget"
-        app:layout_constraintHorizontal_bias="0.615"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/budget_filter"
-        app:layout_constraintVertical_bias="0.09" />
-
-    <RadioGroup
-        android:layout_width="212dp"
-        android:layout_height="50dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gender_filter"
-        app:layout_constraintVertical_bias="0.116">
-
-        <RadioButton
-            android:id="@+id/radioButton_male"
-            android:layout_width="106dp"
-            android:layout_height="50dp"
-            android:button="@android:color/transparent"
-            android:textColor="@drawable/txt_file"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:background="@drawable/rb_pers"
-            android:text="@string/male" />
-
-        <RadioButton
-            android:id="@+id/radioButton_female"
-            android:layout_width="106dp"
-            android:layout_height="50dp"
-            android:button="@android:color/transparent"
-            android:textColor="@drawable/txt_file"
-            android:textStyle="bold"
-            android:textAlignment="center"
-            android:background="@drawable/rb_pers"
-            android:text="@string/female" />
-    </RadioGroup>
-
-    <RadioGroup
-        android:layout_width="300dp"
-        android:layout_height="95dp"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.468"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gender_filter2"
-        app:layout_constraintVertical_bias="0.346">
-
-        <RadioButton
-            android:id="@+id/radioButton15"
-            android:layout_width="75dp"
-            android:layout_height="95dp"
-            android:button="@android:color/transparent"
-            android:textColor="@drawable/txt_file"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:background="@drawable/rb_pers"
-            android:text="@string/kid" />
-
-        <RadioButton
-            android:id="@+id/radioButton14"
-            android:layout_width="75dp"
-            android:layout_height="95dp"
-            android:button="@android:color/transparent"
-            android:textColor="@drawable/txt_file"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:background="@drawable/rb_pers"
-            android:text="@string/young" />
-
-        <RadioButton
-            android:id="@+id/radioButton13"
-            android:layout_width="75dp"
-            android:layout_height="95dp"
-            android:button="@android:color/transparent"
-            android:textColor="@drawable/txt_file"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:background="@drawable/rb_pers"
-            android:text="@string/adult" />
-
-        <RadioButton
-            android:id="@+id/radioButton12"
-            android:layout_width="75dp"
-            android:layout_height="95dp"
-            android:button="@android:color/transparent"
-            android:textColor="@drawable/txt_file"
-            android:textAlignment="center"
-            android:textStyle="bold"
-            android:background="@drawable/rb_pers"
-            android:text="@string/senior" />
-    </RadioGroup>
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:background="#FF0000"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.488"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/title_filter_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/create_your_list"
+                    android:textAlignment="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/view2"
+                    app:layout_constraintVertical_bias="0.023" />
+            </FrameLayout>
+            <TextView
+                android:id="@+id/list_name_filter"
+                android:layout_width="376dp"
+                android:layout_height="wrap_content"
+                android:paddingLeft="15dp"
+                android:paddingTop="20dp"
+                android:text="@string/list_name"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.421"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/view2"
+                app:layout_constraintVertical_bias="0.042" />
+            <EditText
+                android:id="@+id/user_list"
+                android:layout_width="262dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginRight="30dp"
+                android:autofillHints="ekd"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:paddingTop="20dp"
+                android:text="@string/user_list"
+                android:textColor="#32151414"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.205"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/list_name_filter"
+                app:layout_constraintVertical_bias="0.026" />
+            <View
+                android:id="@+id/divider1_filter"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="20dp"
+                android:background="?android:attr/listDivider"
+                android:scrollbarSize="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_list"
+                app:layout_constraintVertical_bias="0.029"
+                tools:layout_editor_absoluteX="-3dp" />
+            <TextView
+                android:id="@+id/budget_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="15dp"
+                android:text="@string/budget_user"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.066"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider1_filter"
+                app:layout_constraintVertical_bias="0.043" />
+
+            <TextView
+                android:id="@+id/user_budget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:text="@string/set_budget"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/seekBar_budget"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/budget_filter"
+                app:layout_constraintVertical_bias="0.169" />
+            <SeekBar
+                android:id="@+id/seekBar_budget"
+                android:layout_width="304dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="15dp"
+                android:progressBackgroundTint="#070707"
+                android:scrollbarSize="2dp"
+                android:thumbTint="#A3FF0000"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/budget_filter"
+                app:layout_constraintVertical_bias="0.063" />
+            <View
+                android:id="@+id/divider1_filter2"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="15dp"
+                android:background="?android:attr/listDivider"
+                android:scrollbarSize="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_list"
+                app:layout_constraintVertical_bias="0.335"
+                tools:layout_editor_absoluteX="-3dp" />
+
+            <TextView
+                android:id="@+id/gender_filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="15dp"
+                android:text="@string/gender"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.045"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider1_filter"
+                app:layout_constraintVertical_bias="0.391" />
+            <RadioGroup
+                android:layout_width="212dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gender_filter"
+                app:layout_constraintVertical_bias="0.116">
+
+                <RadioButton
+                    android:id="@+id/radioButton_male"
+                    android:layout_width="106dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/rb_pers"
+                    android:button="@android:color/transparent"
+                    android:text="@string/male"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/txt_file"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioButton_female"
+                    android:layout_width="106dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/rb_pers"
+                    android:button="@android:color/transparent"
+                    android:text="@string/female"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/txt_file"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <View
+                android:id="@+id/divider1_filter3"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="25dp"
+                android:background="?android:attr/listDivider"
+                android:scrollbarSize="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_list"
+                app:layout_constraintVertical_bias="0.656"
+                tools:layout_editor_absoluteX="5dp" />
+
+            <TextView
+                android:id="@+id/gender_filter2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="15dp"
+                android:text="@string/age_group"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.046"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider1_filter3"
+                app:layout_constraintVertical_bias="0.158" />
+
+            <RadioGroup
+                android:layout_width="296dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.468"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/gender_filter2"
+                app:layout_constraintVertical_bias="0.346">
+
+                <RadioButton
+                    android:id="@+id/radioButton15"
+                    android:layout_width="75dp"
+                    android:layout_height="95dp"
+                    android:background="@drawable/rb_pers"
+                    android:button="@android:color/transparent"
+                    android:text="@string/kid"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/txt_file"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioButton14"
+                    android:layout_width="75dp"
+                    android:layout_height="95dp"
+                    android:background="@drawable/rb_pers"
+                    android:button="@android:color/transparent"
+                    android:text="@string/young"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/txt_file"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioButton13"
+                    android:layout_width="75dp"
+                    android:layout_height="95dp"
+                    android:background="@drawable/rb_pers"
+                    android:button="@android:color/transparent"
+                    android:text="@string/adult"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/txt_file"
+                    android:textStyle="bold" />
+
+                <RadioButton
+                    android:id="@+id/radioButton12"
+                    android:layout_width="75dp"
+                    android:layout_height="95dp"
+                    android:background="@drawable/rb_pers"
+                    android:button="@android:color/transparent"
+                    android:text="@string/senior"
+                    android:textAlignment="center"
+                    android:textColor="@drawable/txt_file"
+                    android:textStyle="bold" />
+            </RadioGroup>
+
+            <View
+                android:id="@+id/divider1_filter4"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="25dp"
+                android:background="?android:attr/listDivider"
+                android:scrollbarSize="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_list"
+                app:layout_constraintVertical_bias="0.656"
+                tools:layout_editor_absoluteX="5dp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
