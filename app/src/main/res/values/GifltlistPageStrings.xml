@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="shareButtonText">ShareButton</string>
+    <string name="resetButtonText">Reset Button</string>
+    <string name="centerText">We selected some amazing items for you</string>
+</resources>

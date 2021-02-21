@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="defaultImageDescription">DefaultItemImage</string>
+    <string name="defaultName">Magic Mushroom</string>
+    <string name="defaultDescription">Unbelievably tasty and dried addition to your diet</string>
+    <string name="defaultPrice">0.00</string>
+</resources>
