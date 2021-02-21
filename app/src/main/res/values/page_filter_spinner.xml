@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinner_array">
+        <item>Beauty 💋</item>
+        <item>Books 📚</item>
+        <item>Clothing 👕</item>
+        <item>Electronics 💡</item>
+        <item>Handmade 🧤</item>
+        <item>Home/Kitchen 🏠</item>
+        <item>Music 🎶</item>
+        <item>Sports 🏐</item>
+        <item>Toys 🧸</item>
+        <item>Videogames 🎮</item>
+    </string-array>
+</resources>

@@ -17,5 +17,12 @@
     <string name="adult">Adult</string>
     <string name="senior">Senior</string>
     <string name="finish">Finish!</string>
+    <string name="closeness_title">Closeness</string>
+    <string name="couple_button">Couple♥</string>
+    <string name="friend_button">Friend🎉</string>
+    <string name="work_button">Work🏢</string>
+    <string name="family_button">Family🏡</string>
+    <string name="category_title">Category</string>
+    <string name="Nav_symbol">---------</string>
 
 </resources>
