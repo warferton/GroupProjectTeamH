@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="agreement_button">Got It!</string>
+    <string name="terms_and_conditions_text">1.Â Interpretation\n\n
+        1.1 “Seller” means JOHN DAVIES FRAMING LIMITED whose registered office is Millers Close Industrial Estate, Fakenham. Norfolk. NR21 8NW.\n\n
+        1.2 “Buyer” means the person who contracts with the Seller for the sale and or supply of the Goods and or the provision of the Services by the Seller.\n\n
+        1.3 “Contract” means the contract for the sale and or supply of goods and or the provision of the Services by the Seller to the Buyer.\n\n
+        1.4 “Conditions” means the standard terms and conditions of business of the Seller set out in this document and (unless the context otherwise requires) includes any special terms and conditions agreed in writing between the Seller and the Buyer.\n\n
+        1.5 “Deposited Items” means any paintings, pictures, prints, frames and or other goods placed in the custody of the Seller by the Buyer (whether or not belonging to the Buyer) in relation to the supply of Goods and or the provision of Services.\n\n
+        1.6 “Goods” means the goods (including any instalment of goods or accessories or parts of them by excluding the Deposited Items) which the Seller is to sell or supply and or upon which the Services are to be carried out under the Contract upon the Conditions.</string>
+</resources>
