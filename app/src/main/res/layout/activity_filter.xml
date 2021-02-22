@@ -259,6 +259,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:paddingLeft="15dp"
+                android:soundEffectsEnabled="false"
                 android:text="@string/age_group"
                 android:textColor="@color/black"
                 android:textSize="18sp"
@@ -292,6 +293,8 @@
                     android:text="@string/kid"
                     android:textAlignment="center"
                     android:textColor="@drawable/txt_file"
+                    android:textColorHighlight="#FF0000"
+                    android:textColorLink="#FF0000"
                     android:textStyle="bold" />
 
                 <RadioButton
@@ -303,6 +306,8 @@
                     android:text="@string/young"
                     android:textAlignment="center"
                     android:textColor="@drawable/txt_file"
+                    android:textColorHighlight="#FF0000"
+                    android:textColorLink="#FF0000"
                     android:textStyle="bold" />
 
                 <RadioButton
@@ -314,6 +319,8 @@
                     android:text="@string/adult"
                     android:textAlignment="center"
                     android:textColor="@drawable/txt_file"
+                    android:textColorHighlight="#FF0000"
+                    android:textColorLink="#FF0000"
                     android:textStyle="bold" />
 
                 <RadioButton
@@ -325,6 +332,8 @@
                     android:text="@string/senior"
                     android:textAlignment="center"
                     android:textColor="@drawable/txt_file"
+                    android:textColorHighlight="#FF0000"
+                    android:textColorLink="#FF0000"
                     android:textStyle="bold" />
             </RadioGroup>
 
@@ -368,25 +377,37 @@
                     android:id="@+id/radioButton_friend"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/friend_button" />
+                    android:buttonTint="#FA0000"
+                    android:text="@string/friend_button"
+                    android:textColorHighlight="#FF0303"
+                    android:textColorLink="#FF0000" />
 
                 <RadioButton
                     android:id="@+id/radioButton_family"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/family_button" />
+                    android:buttonTint="#FF0000"
+                    android:text="@string/family_button"
+                    android:textColorHighlight="#FA0000"
+                    android:textColorLink="#FB0000" />
 
                 <RadioButton
                     android:id="@+id/radioButton_work"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/work_button" />
+                    android:buttonTint="#FF0000"
+                    android:text="@string/work_button"
+                    android:textColorHighlight="#FF0000"
+                    android:textColorLink="#FF0000" />
 
                 <RadioButton
                     android:id="@+id/radioButton_couple"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/couple_button" />
+                    android:buttonTint="#FF0202"
+                    android:text="@string/couple_button"
+                    android:textColorHighlight="#FD0000"
+                    android:textColorLink="#F80202" />
             </RadioGroup>
 
             <View
@@ -420,9 +441,13 @@
 
             <Spinner
                 android:id="@+id/category_spinner"
-                android:layout_width="match_parent"
+                android:layout_width="300dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp" />
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#805555" />
 
             <Button
                 android:id="@+id/finish_button"
