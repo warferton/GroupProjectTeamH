@@ -13,12 +13,13 @@
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
         android:layout_height="35dp"
-        android:background="#FA5050">
+        android:background="#FD0000">
 
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="28dp"
             android:layout_height="26dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="4dp"
             android:clickable="true"
             app:srcCompat="@drawable/nav" />
@@ -51,8 +52,9 @@
 
                 <View
                     android:id="@+id/view2"
-                    android:layout_width="match_parent"
+                    android:layout_width="250dp"
                     android:layout_height="56dp"
+                    android:layout_gravity="center_horizontal"
                     android:background="#FF0000"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
