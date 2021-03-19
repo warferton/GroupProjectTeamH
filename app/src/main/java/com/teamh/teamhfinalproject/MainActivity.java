@@ -5,7 +5,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.ebay.api.client.auth.oauth2.CredentialUtil;
 import com.ebay.api.client.auth.oauth2.OAuth2Api;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -37,6 +44,38 @@ public class MainActivity extends AppCompatActivity {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+
+        //testing the OAuth button
+        TextView text = findViewById(R.id.TryText);
+        Button btn = findViewById(R.id.TryBtn);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //OAuth2Api oauth2Api = new OAuth2Api();
+               // oauth2Api.getApplicationToken();
+                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
+                String url = "https://api.sandbox.ebay.com/identity/v1/oauth2/token";
+
+                //Getting String request from the url
+                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+                                // Display the first 500 characters of the response string.
+                                text.setText("Response is: "+ response.substring(0,500));
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        text.setText("That didn't work!");
+                    }
+                });
+
+// Add the request to the RequestQueue.
+                queue.add(stringRequest);
+            }
+        });
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);

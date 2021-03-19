@@ -59,4 +59,21 @@
         app:layout_anchor="@+id/include"
         app:layout_anchorGravity="center" />
 
+    <TextView
+        android:id="@+id/TryText"
+        android:layout_width="173dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/TryBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="125dp"
+        android:text="Button" />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
