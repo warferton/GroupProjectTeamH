@@ -33,7 +33,7 @@
 
         <activity android:name=".ui.activities.GiftListPageActivity">
         </activity>
-        <activity
+        <!--<activity
             android:name=".oauth2.ui.OAuthRedirectActivity"
             android:exported="true"
             tools:node="replace">
@@ -48,7 +48,7 @@
                     android:pathPrefix="/<registered path>"
                     android:scheme="https" />
             </intent-filter>
-        </activity>
+        </activity>-->
     </application>
 
 </manifest>
