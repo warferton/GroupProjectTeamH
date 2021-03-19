@@ -50,15 +50,15 @@ public class MainActivity extends AppCompatActivity {
         Log.d("bananas", "Hello2");
         //testing the OAuth button
         TextView text = findViewById(R.id.tryText);
-        Button btn = findViewById(R.id.trybtn);
+        Button test_button = (Button)findViewById(R.id.TestButton);
         Log.d("bananas", "Hello2.5");
-        btn.setOnClickListener(new View.OnClickListener() {
+        Log.d("bananas", "Hello2.5.2");
+        test_button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Log.d("bananas", "Hello2.5.2");
+            public void onClick(View view) {
+                Log.d("bananas", "Hello2.5.3");
                 OAuth2Api oauth2Api = new OAuth2Api();
                 //oauth2Api.getApplicationToken();
-                Log.d("bananas", "Hello2.5.2");
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
                 String url = "https://api.sandbox.ebay.com/identity/v1/oauth2/token";
 
@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
         Log.d("bananas", "Hello5");
+
     }
 
     public void  openFilterActivity() {
