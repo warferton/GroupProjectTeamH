@@ -1,0 +1,13 @@
+name: ebay-config
+
+# UPDATE the values in this file, before running the tests
+api.sandbox.ebay.com:
+  appid: IvanKhoz-Gifter-SBX-319baf4db-cecf3f71
+  certid: SBX-19baf4db793e-3764-4051-987f-a0d6
+  devid: 3c064bee-1a4a-4bee-811d-a0dd18d7d4d8
+
+
+api.ebay.com:
+  appid: IvanKhoz-Gifter-SBX-319baf4db-cecf3f71
+  certid: SBX-19baf4db793e-3764-4051-987f-a0d6
+  devid: 3c064bee-1a4a-4bee-811d-a0dd18d7d4d8

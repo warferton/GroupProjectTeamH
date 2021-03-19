@@ -6,6 +6,8 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 
+import com.ebay.api.client.auth.oauth2.CredentialUtil;
+import com.ebay.api.client.auth.oauth2.OAuth2Api;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.teamh.teamhfinalproject.ui.activities.FilterPageActivity;
@@ -19,6 +21,9 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
@@ -26,6 +31,13 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        //Trying to implement EBay API
+        try {
+            CredentialUtil.load(new FileInputStream("APICodes.yaml"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -80,4 +92,12 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
+    OAuth2Api OAUTH = new OAuth2Api();
+
+
+
+
+
 }
