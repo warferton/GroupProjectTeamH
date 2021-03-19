@@ -2,6 +2,7 @@ package com.teamh.teamhfinalproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("bananas", "Hello");
         //Trying to implement EBay API
         try {
             CredentialUtil.load(new FileInputStream("APICodes.yaml"));
@@ -45,17 +47,21 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
-
+        Log.d("bananas", "Hello2");
         //testing the OAuth button
-        TextView text = findViewById(R.id.TryText);
-        Button btn = findViewById(R.id.TryBtn);
+        TextView text = findViewById(R.id.tryText);
+        Button btn = findViewById(R.id.trybtn);
+        Log.d("bananas", "Hello2.5");
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //OAuth2Api oauth2Api = new OAuth2Api();
-               // oauth2Api.getApplicationToken();
+                Log.d("bananas", "Hello2.5.2");
+                OAuth2Api oauth2Api = new OAuth2Api();
+                //oauth2Api.getApplicationToken();
+                Log.d("bananas", "Hello2.5.2");
                 RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
                 String url = "https://api.sandbox.ebay.com/identity/v1/oauth2/token";
+
 
                 //Getting String request from the url
                 StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -72,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
-// Add the request to the RequestQueue.
+                // Add the request to the RequestQueue.
                 queue.add(stringRequest);
             }
         });
@@ -106,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        Log.d("bananas", "Hello5");
     }
 
     public void  openFilterActivity() {
