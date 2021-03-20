@@ -466,6 +466,20 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
+            <Button
+                android:id="@+id/TestButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
+            <TextView
+                android:id="@+id/tryText"
+                android:layout_width="match_parent"
+                android:layout_height="73dp"
+                android:layout_marginTop="50dp"
+                android:gravity="center"
+                android:text="TextView" />
+
 
         </LinearLayout>
     </ScrollView>
