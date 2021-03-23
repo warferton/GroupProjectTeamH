@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         //this is the api key that is set at the end of the request
         String apiKey = "?api_key=fe9ajqvj4nsrgj2p7x5lnlc0";
 
-        String test = "251980621";
+        String test = "667908964";
         Button btn = findViewById(R.id.trybutton);
 
         RequestQueue requestName = Volley.newRequestQueue(this);
@@ -65,9 +65,10 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         String reply = response.toString();
-                        String guess = "currency_formated_long";
+                        String guess = "title";
                         int len = reply.indexOf(guess);
-                        reply = reply.substring(110 ,126);
+                        int len2 = reply.indexOf("description");
+                        reply = reply.substring(len +8,len2 - 3);
 
                         Log.d("restapi", reply);
                     }
