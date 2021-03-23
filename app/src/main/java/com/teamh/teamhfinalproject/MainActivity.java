@@ -44,23 +44,32 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d("banana", "Part1");
-        String standardUrl = "https://openapi.etsy.com/v2/listings/active?api_key=fe9ajqvj4nsrgj2p7x5lnlc0";
-        String apiKey = "?api_key=fe9ajqvj4nsrgj2p7x5lnlc0";
-        String mainUrl = "https://openapi.etsy.com/v2";
-        ObjectExample obj = new ObjectExample("hello");
-        String test = "etsystore";
+        //String standardUrl = "https://openapi.etsy.com/v2/listings/active?api_key=fe9ajqvj4nsrgj2p7x5lnlc0";
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        //this is the main part of the url to send the request
+        String mainUrl = "https://openapi.etsy.com/v2/";
+
+        //this is the api key that is set at the end of the request
+        String apiKey = "?api_key=fe9ajqvj4nsrgj2p7x5lnlc0";
+
+        String test = "251980621";
+        Button btn = findViewById(R.id.trybutton);
+
+        RequestQueue requestName = Volley.newRequestQueue(this);
         Log.d("banana", "Part2");
-        JsonObjectRequest  objectRequest = new JsonObjectRequest(
+        JsonObjectRequest  objectRequest1 = new JsonObjectRequest(
                 Request.Method.GET,
-                 mainUrl + "/users/" + test + "/favored-by"+ apiKey, null ,
+                 mainUrl + "listings/" + test + apiKey, null ,
 
                 new Response.Listener<JSONObject>() {
                     @Override
                     public void onResponse(JSONObject response) {
-                        Log.d("restapi", response.toString());
+                        String reply = response.toString();
+                        String guess = "currency_formated_long";
+                        int len = reply.indexOf(guess);
+                        reply = reply.substring(110 ,126);
+
+                        Log.d("restapi", reply);
                     }
                 },
                 new Response.ErrorListener() {
@@ -72,7 +81,37 @@ public class MainActivity extends AppCompatActivity {
         );
         Log.d("restapi", "Done");
 
-        requestQueue.add(objectRequest);
+        requestName.add(objectRequest1);
+
+        RequestQueue requestPrice = Volley.newRequestQueue(this);
+        Log.d("banana", "Part2");
+        JsonObjectRequest  objectRequest2 = new JsonObjectRequest(
+                Request.Method.GET,
+                mainUrl + "listings/" + test + "/inventory" + apiKey, null ,
+
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        String reply = response.toString();
+                        String guess = "long";
+                        int len = reply.indexOf(guess);
+                        Log.d("restapi", String.valueOf(len));
+                        //to get the exact "$23.42 US" format, change hardcoded 7 by 6
+                        // and 16 by 13 if you want only the double
+                        reply = reply.substring(len + 7 ,len + 16);
+                        Log.d("restapi", reply);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("restapi", error.toString());
+                    }
+                }
+        );
+        Log.d("restapi", "Done");
+
+        requestPrice.add(objectRequest2);
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
