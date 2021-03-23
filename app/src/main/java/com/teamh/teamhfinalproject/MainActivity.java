@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
                         String reply = response.toString();
                         String guess = "long";
                         int len = reply.indexOf(guess);
-                        Log.d("restapi", String.valueOf(len));
                         //to get the exact "$23.42 US" format, change hardcoded 7 by 6
                         // and 16 by 13 if you want only the double
                         reply = reply.substring(len + 7 ,len + 16);

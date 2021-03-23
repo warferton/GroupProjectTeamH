@@ -1,3 +1,4 @@
+/*
 package com.teamh.teamhfinalproject.api.ebay.security;
 
 import com.ebay.api.client.auth.oauth2.OAuth2Api;
@@ -43,13 +44,15 @@ public class EbayTokenManager extends OAuth2Api {
 
 
 //TODO =======================
-    /**
+    */
+/**
      * Should get the Authorization URL to redirect the user to.
      * Once the user authenticates and approves the consent,
      * the callback need to be captured by the redirect URL setup by the app
      * and then call OAuth2Api.exchangeCodeForAccessToken()
      * to get the refresh and access tokens.
-     */
+     *//*
+
     public void getRefreshAndAccessTokens() {
         String uri = this.generateUserAuthorizationUrl(
                 Environment.SANDBOX,
@@ -76,3 +79,4 @@ public class EbayTokenManager extends OAuth2Api {
 
 
 }
+*/
