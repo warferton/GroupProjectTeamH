@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.teamh.teamhfinalproject">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!--These are the permisions for using internet with Volley dependecy -->
     <uses-permission android:name="android.permission.INTERNET" />
