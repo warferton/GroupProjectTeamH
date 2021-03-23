@@ -52,8 +52,8 @@
 
                 <View
                     android:id="@+id/view2"
-                    android:layout_width="250dp"
-                    android:layout_height="56dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
                     android:background="#FF0000"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -465,20 +465,6 @@
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/TestButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <TextView
-                android:id="@+id/tryText"
-                android:layout_width="match_parent"
-                android:layout_height="73dp"
-                android:layout_marginTop="50dp"
-                android:gravity="center"
-                android:text="TextView" />
 
 
         </LinearLayout>

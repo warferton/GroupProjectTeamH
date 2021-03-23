@@ -7,17 +7,19 @@ import android.view.View;
 import android.view.Menu;
 import android.widget.Button;
 import android.widget.TextView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.ebay.api.client.auth.oauth2.CredentialUtil;
-import com.ebay.api.client.auth.oauth2.OAuth2Api;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.teamh.teamhfinalproject.ui.ObjectExample;
 import com.teamh.teamhfinalproject.ui.activities.FilterPageActivity;
 import com.teamh.teamhfinalproject.ui.activities.TermsAndConditionsActivity;
 
@@ -29,8 +31,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,51 +43,76 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Log.d("bananas", "Hello");
-        //Trying to implement EBay API
-        try {
-            CredentialUtil.load(new FileInputStream("APICodes.yaml"));
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
+        super.onCreate(savedInstanceState);
+        //String standardUrl = "https://openapi.etsy.com/v2/listings/active?api_key=fe9ajqvj4nsrgj2p7x5lnlc0";
 
-        Log.d("bananas", "Hello2");
-        //testing the OAuth button
-        TextView text = findViewById(R.id.tryText);
-        Button test_button = (Button)findViewById(R.id.TestButton);
-        Log.d("bananas", "Hello2.5");
-        Log.d("bananas", "Hello2.5.2");
-        test_button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d("bananas", "Hello2.5.3");
-                OAuth2Api oauth2Api = new OAuth2Api();
-                //oauth2Api.getApplicationToken();
-                RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
-                String url = "https://api.sandbox.ebay.com/identity/v1/oauth2/token";
+        //this is the main part of the url to send the request
+        String mainUrl = "https://openapi.etsy.com/v2/";
 
+        //this is the api key that is set at the end of the request
+        String apiKey = "?api_key=fe9ajqvj4nsrgj2p7x5lnlc0";
 
-                //Getting String request from the url
-                StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                // Display the first 500 characters of the response string.
-                                text.setText("Response is: "+ response.substring(0,500));
-                            }
-                        }, new Response.ErrorListener() {
+        String test = "251980621";
+        Button btn = findViewById(R.id.trybutton);
+
+        RequestQueue requestName = Volley.newRequestQueue(this);
+        Log.d("banana", "Part2");
+        JsonObjectRequest  objectRequest1 = new JsonObjectRequest(
+                Request.Method.GET,
+                 mainUrl + "listings/" + test + apiKey, null ,
+
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        String reply = response.toString();
+                        String guess = "currency_formated_long";
+                        int len = reply.indexOf(guess);
+                        reply = reply.substring(110 ,126);
+
+                        Log.d("restapi", reply);
+                    }
+                },
+                new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        text.setText("That didn't work!");
+                        Log.d("restapi", error.toString());
                     }
-                });
+                }
+        );
+        Log.d("restapi", "Done");
 
-                // Add the request to the RequestQueue.
-                queue.add(stringRequest);
-            }
-        });
+        requestName.add(objectRequest1);
 
-        super.onCreate(savedInstanceState);
+        RequestQueue requestPrice = Volley.newRequestQueue(this);
+        Log.d("banana", "Part2");
+        JsonObjectRequest  objectRequest2 = new JsonObjectRequest(
+                Request.Method.GET,
+                mainUrl + "listings/" + test + "/inventory" + apiKey, null ,
+
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        String reply = response.toString();
+                        String guess = "long";
+                        int len = reply.indexOf(guess);
+                        Log.d("restapi", String.valueOf(len));
+                        //to get the exact "$23.42 US" format, change hardcoded 7 by 6
+                        // and 16 by 13 if you want only the double
+                        reply = reply.substring(len + 7 ,len + 16);
+                        Log.d("restapi", reply);
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.d("restapi", error.toString());
+                    }
+                }
+        );
+        Log.d("restapi", "Done");
+
+        requestPrice.add(objectRequest2);
+
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -101,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 openTermsAndConditionsActivity();
             }
         });
+        Log.d("bananas", "Hello2.5.3");
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
@@ -139,12 +169,4 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-
-    OAuth2Api OAUTH = new OAuth2Api();
-
-
-
-
-
 }
