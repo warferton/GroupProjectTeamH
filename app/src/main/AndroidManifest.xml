@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.teamh.teamhfinalproject">
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <!--These are the permisions for using internet with Volley dependecy -->
     <uses-permission android:name="android.permission.INTERNET" />
@@ -37,22 +38,6 @@
 
         <activity android:name=".ui.activities.GiftListPageActivity">
         </activity>
-        <!--<activity
-            android:name=".oauth2.ui.OAuthRedirectActivity"
-            android:exported="true"
-            tools:node="replace">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data
-                    android:host="<registered host>"
-                    android:pathPrefix="/<registered path>"
-                    android:scheme="https" />
-            </intent-filter>
-        </activity>-->
     </application>
 
 </manifest>
