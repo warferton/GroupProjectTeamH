@@ -57,4 +57,18 @@ public class ProductController {
             error -> Log.d("restapi", error.toString())
     );
 
+    JsonObjectRequest jsonObjectRequest3 = new JsonObjectRequest(
+                Request.Method.GET,
+                API_URL + "taxonomy/buyer/get" + API_KEY, null,
+
+                response -> {
+                    String reply = response.toString();
+                    String guess = "name";
+
+                    Log.d("restapi", reply);
+                },
+                error -> Log.d("restapi", error.toString())
+        );
+
+
 }
