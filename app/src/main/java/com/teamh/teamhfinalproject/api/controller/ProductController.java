@@ -53,10 +53,10 @@ public class ProductController {
         );
     }
 
-    JsonObjectRequest jsonObjectRequest3 = new JsonObjectRequest(
+    public JsonObjectRequest getBuyerTaxonomy() {
+        return new JsonObjectRequest(
                 Request.Method.GET,
                 API_URL + "taxonomy/buyer/get" + API_KEY, null,
-
                 response -> {
                     String reply = response.toString();
                     String guess = "name";
@@ -65,6 +65,7 @@ public class ProductController {
                 },
                 error -> Log.d("restapi", error.toString())
         );
+    }
 
 
 }
