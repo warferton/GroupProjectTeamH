@@ -1,10 +1,14 @@
 package com.teamh.teamhfinalproject.api.models;
 
-import android.media.Image;
 
 import androidx.annotation.Nullable;
 
-import java.net.URL;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -18,22 +22,24 @@ public class EtsyProduct {
     private String title;
     private String description;
     private List<String> tags;
-    private URL url;
+    private String url;
     private double price;
-    private Image img;
+    private String img_url;
 
     public EtsyProduct(String id,
                        String title,
                        String description,
                        List<String> tags,
-                       URL url,
-                       double price) {
+                       String url,
+                       double price,
+                       String img_url) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.tags = tags;
         this.url = url;
         this.price = price;
+        this.img_url = img_url;
     }
 
     public String getId() {
@@ -52,7 +58,7 @@ public class EtsyProduct {
         return tags;
     }
 
-    public URL getUrl() {
+    public String getUrl() {
         return url;
     }
 
@@ -60,8 +66,8 @@ public class EtsyProduct {
         return price;
     }
 
-    public Image getImg() {
-        return img;
+    public String getImgUrl() {
+        return img_url;
     }
 
     @Override
@@ -71,5 +77,23 @@ public class EtsyProduct {
         if(obj.getClass() != EtsyProduct.class)
             return false;
         return ((EtsyProduct) obj).getId().equals(this.id);
+    }
+
+    public void setTags(List<String> tags){
+        this.tags = tags;
+    }
+
+
+    @Override
+    public String toString() {
+        return "EtsyProduct{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", tags=" + tags +
+                ", url=" + url +
+                ", price=" + price +
+                ", img_url='" + img_url + '\'' +
+                '}';
     }
 }

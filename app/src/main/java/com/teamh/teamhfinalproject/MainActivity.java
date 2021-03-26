@@ -17,6 +17,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
+import com.teamh.teamhfinalproject.api.controller.ProductController;
+import com.teamh.teamhfinalproject.api.dao.ProductDataAccess;
+import com.teamh.teamhfinalproject.api.service.ProductService;
 import com.teamh.teamhfinalproject.ui.activities.FilterPageActivity;
 import com.teamh.teamhfinalproject.ui.activities.TermsAndConditionsActivity;
 
@@ -30,6 +33,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         RequestQueue requestName = Volley.newRequestQueue(this);
+
+        ProductController pc = new ProductController(
+                                    new ProductService(
+                                            new ProductDataAccess()
+                                    ));
+        requestName.add(pc.getListingById("269955671"));
+        requestName.start();
+
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
