@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="create_your_list">Create Your List</string>
-    <string name="list_name">What is the name of your list&#8230;</string>
+    <string name="list_name">What is the name of your list&#8230;🤔</string>
     <string name="user_list">Type something&#8230;</string>
     <string name="amount_budget">$5</string>
-    <string name="budget_user">What is your budget?</string>
+    <string name="budget_user">What is your budget?💵 </string>
     <string name="set_budget">$5</string>
     <string name="dollar_1">$</string>
     <string name="dollar_2">$</string>
     <string name="gender">Gender</string>
-    <string name="male">Male</string>
-    <string name="female">Female</string>
+    <string name="male">Male ♂️</string>
+    <string name="female">Female ♀</string>
     <string name="age_group">Age Group</string>
-    <string name="kid">Kid</string>
-    <string name="young">Young</string>
-    <string name="adult">Adult</string>
-    <string name="senior">Senior</string>
+    <string name="kid">Kid 👶</string>
+    <string name="young">Young👦</string>
+    <string name="adult">Adult 🧑</string>
+    <string name="senior">Senior👵</string>
     <string name="finish">Finish!</string>
     <string name="closeness_title">Closeness</string>
     <string name="couple_button">Couple♥</string>
