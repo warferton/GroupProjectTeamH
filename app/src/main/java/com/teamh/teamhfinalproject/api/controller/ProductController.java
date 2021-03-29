@@ -67,7 +67,7 @@ public class ProductController {
 
                     try {
                         JSONArray product_array = response.getJSONArray("results");
-                        List<EtsyProduct> products = null;
+                        List<EtsyProduct> products = new ArrayList<EtsyProduct>();
                         List<String> tags = new ArrayList<>();
                         for(int i=0; i < product_array.length(); i++){
                             products.add(
