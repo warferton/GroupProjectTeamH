@@ -20,7 +20,7 @@ import com.google.android.material.navigation.NavigationView;
 import com.teamh.teamhfinalproject.api.controller.ProductController;
 import com.teamh.teamhfinalproject.api.dao.ProductDataAccess;
 import com.teamh.teamhfinalproject.api.service.ProductService;
-//import com.teamh.teamhfinalproject.ui.activities.FilterPageActivity;
+import com.teamh.teamhfinalproject.ui.activities.FilterPageActivity;
 import com.teamh.teamhfinalproject.ui.activities.TermsAndConditionsActivity;
 
 
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.find_gift_button);
-//        fab.setOnClickListener(view -> openFilterActivity());
+        fab.setOnClickListener(view -> openFilterActivity());
         Button terms_button = findViewById(R.id.nav_button_terms);
         terms_button.setOnClickListener(view -> openTermsAndConditionsActivity());
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -62,10 +62,10 @@ public class MainActivity extends AppCompatActivity {
         NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-//    public void  openFilterActivity() {
-//        Intent intent = new Intent(this, FilterPageActivity.class);
-//        startActivity(intent);
-//    }
+    public void  openFilterActivity() {
+       Intent intent = new Intent(this, FilterPageActivity.class);
+       startActivity(intent);
+   }
 
     public void openTermsAndConditionsActivity(){
         Intent intent = new Intent(this, TermsAndConditionsActivity.class);
