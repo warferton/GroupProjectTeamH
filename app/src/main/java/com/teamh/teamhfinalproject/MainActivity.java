@@ -13,35 +13,34 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.ebay.api.client.auth.oauth2.CredentialUtil;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
-import com.teamh.teamhfinalproject.api.ebay.security.EbayTokenManager;
+import com.teamh.teamhfinalproject.api.controller.ProductController;
+import com.teamh.teamhfinalproject.api.dao.ProductDataAccess;
+import com.teamh.teamhfinalproject.api.service.ProductService;
 import com.teamh.teamhfinalproject.ui.activities.FilterPageActivity;
 import com.teamh.teamhfinalproject.ui.activities.TermsAndConditionsActivity;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    //instantiate token manager
-    private EbayTokenManager tokenManager = new EbayTokenManager();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        /**load creds from yaml**/
-        try {
-            CredentialUtil.load(new FileInputStream("./api/ebay/ebay-config.yml"));
-            System.out.println("\n=========Successfully Loaded the Credentials =========\n");
-        } catch (FileNotFoundException e) {
-            System.err.println("Failed to Load Credentials at MainActivity.java, 40.\n");
-            e.printStackTrace();
-        }
+        RequestQueue requestName = Volley.newRequestQueue(this);
+
+        ProductController pc = new ProductController(
+                                    new ProductService(
+                                            new ProductDataAccess()
+                                    ));
+        requestName.add(pc.getListingById("269955671"));
+//        requestName.start();
+
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -64,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void  openFilterActivity() {
-        Intent intent = new Intent(this, FilterPageActivity.class);
-        startActivity(intent);
-    }
+       Intent intent = new Intent(this, FilterPageActivity.class);
+       startActivity(intent);
+   }
 
     public void openTermsAndConditionsActivity(){
         Intent intent = new Intent(this, TermsAndConditionsActivity.class);

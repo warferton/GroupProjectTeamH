@@ -9,10 +9,10 @@ Ever struggled to think of a small gift for a random occasion or for yourself?
 Gifter is the app that will do the thinking and searching for you!   
 Just sign in, select some desired filters and get your perfect present!
 
-Gifter will scan the eBay market based on your entered preferences,  
-and retrieve a list of the best suiting products that would deffinetely fit the occasion.
+Gifter will scan the Etsy store based on your entered preferences,
+and retrieve a list of the best suiting products that would definitely fit the occasion.
 
-## Developen With
+## Developed With
  - ☕ Java ☕
  - ___and maybe something else ;)___
 
@@ -23,4 +23,4 @@ and retrieve a list of the best suiting products that would deffinetely fit the 
  - Eugene Lobkoff
  - Carlos Avilla
  - Zhuldyz Ilyassova
- - 🥶 Alex Kirillov 🥶
+ - Alex Kirillov
