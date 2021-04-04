@@ -108,7 +108,7 @@
 
          else
              {
-             Intent intent = new Intent(this, GiftListPageActivity.class);
+             Intent intent = new Intent(this, LoadingPage.class);
              startActivity(intent);
          }
      }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_loading_page">activity_loadingPage</string>
+    <string name="LoadingPageTitle">Please wait while we wrap your gifts!</string>
+    <string name="GiftDescription">GiftGif</string>
+    <string name="ButtonText_LoadingPage">Your gifts are now ready!</string>
+</resources>
