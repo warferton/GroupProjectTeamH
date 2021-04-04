@@ -18,8 +18,19 @@ public class LoadingPage extends AppCompatActivity {
 
         try { this.getSupportActionBar().hide(); }
         catch (NullPointerException e){ e.printStackTrace();}
+        Button button = findViewById(R.id.LoadingPageButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RunGiftListPage();
+            }
+        });
 
-       // Intent intent = new Intent(this, GiftListPageActivity.class);
-       // startActivity(intent);
+    }
+
+    public void RunGiftListPage()
+    {
+        Intent intent = new Intent(this, GiftListPageActivity.class);
+        startActivity(intent);
     }
 }
