@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-//Local Repo
+//Local DB Repo
 public class ProductDataAccess implements ProductsDAO{
-    private static List<EtsyProduct> productDB = new ArrayList<EtsyProduct>();
+    private static List<EtsyProduct> productDB = new ArrayList<>();
 
     public ProductDataAccess() {}
 
@@ -44,11 +44,14 @@ public class ProductDataAccess implements ProductsDAO{
         Optional<EtsyProduct> product_to_delete = productDB.parallelStream()
                 .filter(product -> product.getId().equals(product_id))
                 .findFirst();
-        //No object found
-        if(!product_to_delete.isPresent())
-            return -1;
+
         //Found -> Delete
-        productDB.remove(product_to_delete);
-        return 1;
+        if(product_to_delete.isPresent()) {
+            productDB.remove(product_to_delete);
+            return 1;
+        }
+
+        //No object found
+        return -1;
     }
 }

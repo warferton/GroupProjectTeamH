@@ -82,9 +82,9 @@
          String closeness_family = getString(R.string.family_button);
          String closeness_work = getString(R.string.work_button);
          String closeness_couple = getString(R.string.couple_button);
- 
- 
- 
+
+         //getting value for spinner
+         String text = spinner.getSelectedItem().toString();
  
      }
  
@@ -108,7 +108,7 @@
 
          else
              {
-             Intent intent = new Intent(this, GiftListPageActivity.class);
+             Intent intent = new Intent(this, LoadingPage.class);
              startActivity(intent);
          }
      }

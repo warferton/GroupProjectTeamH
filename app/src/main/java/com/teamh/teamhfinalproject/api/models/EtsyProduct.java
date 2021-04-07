@@ -3,12 +3,8 @@ package com.teamh.teamhfinalproject.api.models;
 
 import androidx.annotation.Nullable;
 
+import org.jetbrains.annotations.NotNull;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -84,6 +80,7 @@ public class EtsyProduct {
     }
 
 
+    @NotNull
     @Override
     public String toString() {
         return "EtsyProduct{" +

@@ -33,6 +33,9 @@
 
         <activity android:name=".ui.activities.GiftListPageActivity">
         </activity>
+
+        <activity android:name=".ui.activities.LoadingPage">
+        </activity>
     </application>
 
 </manifest>

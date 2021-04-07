@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
                                             new ProductDataAccess()
                                     ));
         requestName.add(pc.getListingById("269955671"));
-//        requestName.start();
+        requestName.add(pc.getListingImages("269955671"));
 
 
         setContentView(R.layout.activity_main);
