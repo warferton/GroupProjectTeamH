@@ -13,6 +13,7 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static com.teamh.teamhfinalproject.api.ConnectionDetails.API_KEY;
@@ -63,11 +64,10 @@ public class ProductController {
                 API_URL.getUri() + "listings/" + listing_id + API_KEY.getUri(),
                 null,
                 response -> {
-                    //TODO: Constructor Doesn't work on response yet need further config
 
                     try {
                         JSONArray product_array = response.getJSONArray("results");
-                        List<EtsyProduct> products = new ArrayList<EtsyProduct>();
+                        List<EtsyProduct> products = new ArrayList<>();
                         List<String> tags = new ArrayList<>();
                         for(int i=0; i < product_array.length(); i++){
                             products.add(
@@ -78,6 +78,32 @@ public class ProductController {
                         Log.i("Success", products.toString());
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
+                    }
+
+                },
+                error -> Log.d("restapi", error.toString())
+        );
+    }
+
+    public JsonObjectRequest getListingImages(String listing_id){
+        return new JsonObjectRequest(
+                Request.Method.GET,
+                API_URL.getUri() + "listings/" + listing_id + "/images" + API_KEY.getUri(),
+                null,
+                response -> {
+
+                    try {
+                        JSONArray images_array = response.getJSONArray("results");
+                        List<String[]> images = new ArrayList<>();
+                        for(int i=0; i < images_array.length(); i++){
+                            images.add(
+                                    JsonParser.parseProductImages(images_array.getJSONObject(i).toString())
+                            );
+                        }
+                        Log.i("Success", Arrays.toString(images.get(0)));
+                    } catch (IOException | JSONException e) {
+                        e.printStackTrace();
+                        Log.d("Error", "Failed requesting Images for product. Product ID: " + listing_id);
                     }
 
                 },
