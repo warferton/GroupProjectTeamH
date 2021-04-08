@@ -110,6 +110,7 @@
          else
              {
              Intent intent = new Intent(this, LoadingPage.class);
+             intent.putExtra("category", spinner.getSelectedItem().toString());
              startActivity(intent);
          }
      }
