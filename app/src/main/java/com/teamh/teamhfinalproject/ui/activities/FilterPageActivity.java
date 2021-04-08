@@ -11,7 +11,8 @@
  import android.widget.SeekBar;
  import android.widget.Spinner;
  import android.widget.TextView;
- 
+ import android.widget.Toast;
+
  import com.teamh.teamhfinalproject.R;
 
  public class FilterPageActivity extends AppCompatActivity {
@@ -103,7 +104,7 @@
  
          if (checkedId_1 == -1 && checkedId_2 == -1 && checkedId_3 == -1) {
              // if gender, age and closeness were not checked
-             MessageFilterNotChecked.message(getApplicationContext(), "Please apply all filters");
+             Toast.makeText(getApplicationContext(), "Please apply all filters", Toast.LENGTH_SHORT).show();
          }
 
          else
