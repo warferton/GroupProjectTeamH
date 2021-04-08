@@ -38,8 +38,9 @@ public class MainActivity extends AppCompatActivity {
                                     new ProductService(
                                             new ProductDataAccess()
                                     ));
-        requestName.add(pc.getListingById("269955671"));
-        requestName.add(pc.getListingImages("269955671"));
+//        requestName.add(pc.getListingById("269955671"));  //working
+//        requestName.add(pc.getListingImages("269955671"));  //working
+        requestName.add(pc.getActiveListings()); //25?
 
 
         setContentView(R.layout.activity_main);

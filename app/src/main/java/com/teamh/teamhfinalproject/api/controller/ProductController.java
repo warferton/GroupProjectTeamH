@@ -31,9 +31,30 @@ public class ProductController {
     public JsonObjectRequest getActiveListings() {
         return new JsonObjectRequest(
                 Request.Method.GET,
-                API_URL + "listings/active" + API_KEY,
+                API_URL.getUri() + "listings/active" + API_KEY.getUri(),
                 null,
-                null,
+                response ->{
+                    try {
+                        JSONArray product_array = response.getJSONArray("results");
+                        List<EtsyProduct> products = new ArrayList<>();
+                        JSONArray tags_array;
+                        for(int i=0; i < product_array.length(); i++){
+                            try {
+                                tags_array = product_array.getJSONObject(i).getJSONArray("tags");
+                            }catch (Exception e){
+                                tags_array = new JSONArray();
+                                Log.e("Response Processing", "Object has no 'tags' property.");
+                            }
+                            products.add(
+                                    JsonParser.parseProduct(product_array.getJSONObject(i).toString(),
+                                            tags_array)
+                            );
+                        }
+                        Log.i("Success | Products got", products.size() + "");
+                    } catch (IOException | JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
                 error -> Log.d("restapi", error.toString())
         );
     }
@@ -48,16 +69,6 @@ public class ProductController {
         );
     }
 
-    public JsonObjectRequest getBuyerTaxonomy() {
-        return new JsonObjectRequest(
-                Request.Method.GET,
-                API_URL.getUri() + "taxonomy/buyer/get" + API_KEY.getUri(),
-                null,
-                null,
-                error -> Log.d("restapi", error.toString())
-        );
-    }
-
     public JsonObjectRequest getListingById(String listing_id){
         return new JsonObjectRequest(
                 Request.Method.GET,
@@ -68,7 +79,6 @@ public class ProductController {
                     try {
                         JSONArray product_array = response.getJSONArray("results");
                         List<EtsyProduct> products = new ArrayList<>();
-                        List<String> tags = new ArrayList<>();
                         for(int i=0; i < product_array.length(); i++){
                             products.add(
                                     JsonParser.parseProduct(product_array.getJSONObject(i).toString(),
