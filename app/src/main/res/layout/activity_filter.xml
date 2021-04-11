@@ -454,19 +454,19 @@
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="#805555" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/finish_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
-                android:background="#FF0000"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/rb_pers"
                 android:rotationX="0"
                 android:rotationY="0"
-                android:shadowColor="#FFFFFF"
                 android:text="@string/finish"
+                android:textColor="@drawable/txt_file"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textStyle="bold" />
 
 

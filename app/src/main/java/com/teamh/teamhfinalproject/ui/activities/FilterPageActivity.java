@@ -5,6 +5,7 @@
  import android.content.Intent;
  import android.os.Bundle;
  import android.view.View;
+ import android.widget.AdapterView;
  import android.widget.ArrayAdapter;
  import android.widget.Button;
  import android.widget.RadioGroup;
@@ -15,27 +16,41 @@
 
  import com.teamh.teamhfinalproject.R;
 
+ import java.util.ArrayList;
+ import java.util.List;
+
  public class FilterPageActivity extends AppCompatActivity {
- 
-     SeekBar seekBar;
-     TextView textView;
-     RadioGroup gender;
-     RadioGroup age;
-     RadioGroup closeness;
-     Spinner spinner;
+
+     //seekbar for budget
+     private SeekBar seekBar;
+     //declaring textView
+     private TextView textView;
+     //variables of filters
+     private RadioGroup gender;
+     private RadioGroup age;
+     private RadioGroup closeness;
+     private Spinner catSpinner;
+     //String[] categories = {"Beauty", "Books", "Clothing", "Electronics", "Handmade", "Kitchen", "Music", "Sports", "Toys", "Videogames"};
+    //category filter
+     private List<String> categories;
+     private ArrayAdapter categoryAdapter;
+     private String categoryString;
+     //finish button
      Button finishButton;
  
      @Override
      protected void onCreate(Bundle savedInstanceState) {
          super.onCreate(savedInstanceState);
          setContentView(R.layout.activity_filter);
- 
-         spinner = (Spinner) findViewById(R.id.category_spinner);
+
+         //spinner with categories
+         catSpinner = (Spinner) findViewById(R.id.category_spinner);
          ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                  R.array.spinner_array, android.R.layout.simple_spinner_item);
          adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-         spinner.setAdapter(adapter);
- 
+         catSpinner.setAdapter(adapter);
+
+         //removing the header
          try { this.getSupportActionBar().hide(); }
              catch (NullPointerException e){ e.printStackTrace();}
  
@@ -47,7 +62,8 @@
                  openGiftListPageActivity();
              }
          });
- 
+
+         //seekbar with budget
          seekBar = findViewById(R.id.seekBar_budget);
          seekBar.setProgress(5);
          seekBar.incrementProgressBy(5);
@@ -71,7 +87,8 @@
  
              }
          });
- 
+
+         /**
          int price = seekBar.getProgress();
          String gender_male = getString(R.string.male);
          String gender_female = getString(R.string.female);
@@ -86,9 +103,35 @@
 
          //getting value for spinner
          String text = spinner.getSelectedItem().toString();
- 
+ **/
+
+        //getting filter for categories
+         categories = new ArrayList<>();
+         categoryAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, categories);
+
+         catSpinner.setAdapter(categoryAdapter);
+
+         catSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+             @Override
+             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                 categoryString = (String) parent.getItemAtPosition(position);
+                 catSpinner.setSelection(position);
+
+             }
+
+             @Override
+             public void onNothingSelected(AdapterView<?> parent) {
+                 categoryString = "";
+
+             }
+         });
      }
- 
+     /**
+     private void initializeViews() {
+         catSpinner.findViewById(R.id.category_spinner);
+         catSpinner.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_list_item_1 ,categories));
+     }
+ **/
  
       //method for starting GiftListPageActivity to open GiftList layout
      public void openGiftListPageActivity() {
