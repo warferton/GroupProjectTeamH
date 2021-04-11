@@ -55,7 +55,7 @@ public class LoadingPage extends AppCompatActivity {
         Log.d("banana", resultArray.toString());
 
         //Example line v
-//        Log.i("ALL PRODUCTS IN DB", productService.getAll().toString());
+        Log.i("ALL PRODUCTS IN DB", productService.getAll().toString());
     }
 
 
