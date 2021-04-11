@@ -4,8 +4,8 @@ import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 import com.teamh.teamhfinalproject.api.models.JsonParser;
+import com.teamh.teamhfinalproject.api.service.ProductService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,6 +26,9 @@ public class ProductController {
     @Inject
     public ProductController(){}
 
+    @Inject
+    ProductService productService;
+
     public JsonObjectRequest getActiveListings() {
         return new JsonObjectRequest(
                 Request.Method.GET,
@@ -34,7 +37,6 @@ public class ProductController {
                 response ->{
                     try {
                         JSONArray product_array = response.getJSONArray("results");
-                        List<EtsyProduct> products = new ArrayList<>();
                         JSONArray tags_array;
                         for(int i=0; i < product_array.length(); i++){
                             try {
@@ -43,12 +45,12 @@ public class ProductController {
                                 tags_array = new JSONArray();
                                 Log.e("Response Processing", "Object has no 'tags' property.");
                             }
-                            products.add(
+                            productService.add(
                                     JsonParser.parseProduct(product_array.getJSONObject(i).toString(),
                                             tags_array)
                             );
                         }
-                        Log.i("Success | Products got", products.size() + "");
+                        Log.i("Success | Products got", productService.getAll().size() + "");
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }
@@ -76,14 +78,13 @@ public class ProductController {
 
                     try {
                         JSONArray product_array = response.getJSONArray("results");
-                        List<EtsyProduct> products = new ArrayList<>();
                         for(int i=0; i < product_array.length(); i++){
-                            products.add(
+                            productService.add(
                                     JsonParser.parseProduct(product_array.getJSONObject(i).toString(),
                                     product_array.getJSONObject(i).getJSONArray("tags"))
                             );
                         }
-                        Log.i("Success", products.toString());
+                        Log.i("Success", productService.toString());
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }
