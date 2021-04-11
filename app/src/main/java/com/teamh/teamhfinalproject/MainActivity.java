@@ -23,7 +23,9 @@ import com.teamh.teamhfinalproject.api.service.ProductService;
 import com.teamh.teamhfinalproject.ui.activities.FilterPageActivity;
 import com.teamh.teamhfinalproject.ui.activities.TermsAndConditionsActivity;
 
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;

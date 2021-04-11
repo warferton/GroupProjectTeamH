@@ -9,13 +9,24 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.teamh.teamhfinalproject.R;
-import com.teamh.teamhfinalproject.api.dao.ProductDataAccess;
 import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 import com.teamh.teamhfinalproject.api.service.ProductService;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class LoadingPage extends AppCompatActivity {
+
+    private ProductService productService;
+
+    @Inject
+    public LoadingPage(ProductService productService){
+        this.productService = productService;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +48,16 @@ public class LoadingPage extends AppCompatActivity {
         category = category.substring(0,category.length()-3);
 
         List<EtsyProduct> resultArray;
-        ProductService DA = new ProductService(new ProductDataAccess());
-        resultArray = DA.selectByDescription(category);
+        resultArray = productService.selectByDescription(category);
         Log.d("banana", resultArray.toString());
         if(resultArray.isEmpty())
         {
-            resultArray = DA.selectByTag(category);
+            resultArray = productService.selectByTag(category);
             Log.d("banana1", resultArray.toString());
         }
         if(resultArray.isEmpty())
         {
-            resultArray = DA.selectByTitle(category);
+            resultArray = productService.selectByTitle(category);
         }
         Log.d("banana", resultArray.toString());
     }
