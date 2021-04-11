@@ -15,15 +15,6 @@
         android:layout_height="35dp"
         android:background="#FD0000">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="28dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="4dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/nav" />
-
         <View
             android:id="@+id/nav_divider"
             android:layout_width="match_parent"

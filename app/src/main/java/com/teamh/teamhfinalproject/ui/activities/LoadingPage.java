@@ -44,6 +44,7 @@ public class LoadingPage extends AppCompatActivity {
             }
         });
         int price = getIntent().getIntExtra("price", 5);
+
         String category = getIntent().getStringExtra("category");
         category = category.substring(0,category.length()-3);
 
@@ -61,6 +62,7 @@ public class LoadingPage extends AppCompatActivity {
         }
         Log.d("banana", resultArray.toString());
     }
+
 
     public void RunGiftListPage()
     {

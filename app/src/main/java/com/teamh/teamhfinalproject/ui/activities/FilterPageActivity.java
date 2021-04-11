@@ -88,50 +88,10 @@
              }
          });
 
-         /**
-         int price = seekBar.getProgress();
-         String gender_male = getString(R.string.male);
-         String gender_female = getString(R.string.female);
-         String age_kid = getString(R.string.kid);
-         String age_young = getString(R.string.young);
-         String age_adult = getString(R.string.adult);
-         String age_senior = getString(R.string.senior);
-         String closeness_friend = getString(R.string.friend_button);
-         String closeness_family = getString(R.string.family_button);
-         String closeness_work = getString(R.string.work_button);
-         String closeness_couple = getString(R.string.couple_button);
 
-         //getting value for spinner
-         String text = spinner.getSelectedItem().toString();
- **/
 
-        //getting filter for categories
-         categories = new ArrayList<>();
-         categoryAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, categories);
-
-         catSpinner.setAdapter(categoryAdapter);
-
-         catSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-             @Override
-             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                 categoryString = (String) parent.getItemAtPosition(position);
-                 catSpinner.setSelection(position);
-
-             }
-
-             @Override
-             public void onNothingSelected(AdapterView<?> parent) {
-                 categoryString = "";
-
-             }
-         });
      }
-     /**
-     private void initializeViews() {
-         catSpinner.findViewById(R.id.category_spinner);
-         catSpinner.setAdapter(new ArrayAdapter<>(this,android.R.layout.simple_list_item_1 ,categories));
-     }
- **/
+
  
       //method for starting GiftListPageActivity to open GiftList layout
      public void openGiftListPageActivity() {
