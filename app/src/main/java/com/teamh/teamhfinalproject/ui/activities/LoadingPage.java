@@ -1,23 +1,19 @@
 package com.teamh.teamhfinalproject.ui.activities;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.teamh.teamhfinalproject.R;
 import com.teamh.teamhfinalproject.api.dao.ProductDataAccess;
 import com.teamh.teamhfinalproject.api.models.EtsyProduct;
+import com.teamh.teamhfinalproject.api.service.ProductService;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 public class LoadingPage extends AppCompatActivity {
 
@@ -41,7 +37,7 @@ public class LoadingPage extends AppCompatActivity {
         category = category.substring(0,category.length()-3);
 
         List<EtsyProduct> resultArray;
-        ProductDataAccess DA = new ProductDataAccess();
+        ProductService DA = new ProductService(new ProductDataAccess());
         resultArray = DA.selectByDescription(category);
         Log.d("banana", resultArray.toString());
         if(resultArray.isEmpty())
