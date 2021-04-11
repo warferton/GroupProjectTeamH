@@ -3,7 +3,6 @@ package com.teamh.teamhfinalproject.ui.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,12 +20,10 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class LoadingPage extends AppCompatActivity {
 
-    private ProductService productService;
+    public LoadingPage(){}
 
     @Inject
-    public LoadingPage(ProductService productService){
-        this.productService = productService;
-    }
+    ProductService productService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +34,7 @@ public class LoadingPage extends AppCompatActivity {
         catch (NullPointerException e){ e.printStackTrace();}
         Button button = findViewById(R.id.LoadingPageButton);
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RunGiftListPage();
-            }
-        });
+        button.setOnClickListener(v -> RunGiftListPage());
         int price = getIntent().getIntExtra("price", 5);
 
         String category = getIntent().getStringExtra("category");
@@ -61,6 +53,8 @@ public class LoadingPage extends AppCompatActivity {
             resultArray = productService.selectByTitle(category);
         }
         Log.d("banana", resultArray.toString());
+
+        Log.i("ALL PRODUCTS IN DB", productService.getAll().toString());
     }
 
 

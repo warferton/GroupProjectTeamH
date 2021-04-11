@@ -6,7 +6,6 @@ import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 import com.teamh.teamhfinalproject.api.models.JsonParser;
-import com.teamh.teamhfinalproject.api.service.ProductService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,17 +15,16 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import static com.teamh.teamhfinalproject.api.ConnectionDetails.API_KEY;
 import static com.teamh.teamhfinalproject.api.ConnectionDetails.API_URL;
 
 //TODO Need to extra modify maybe
 public class ProductController {
 
-    private ProductService productService;
-
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+    @Inject
+    public ProductController(){}
 
     public JsonObjectRequest getActiveListings() {
         return new JsonObjectRequest(

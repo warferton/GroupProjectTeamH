@@ -18,10 +18,10 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.teamh.teamhfinalproject.api.controller.ProductController;
-import com.teamh.teamhfinalproject.api.dao.ProductDataAccess;
-import com.teamh.teamhfinalproject.api.service.ProductService;
 import com.teamh.teamhfinalproject.ui.activities.FilterPageActivity;
 import com.teamh.teamhfinalproject.ui.activities.TermsAndConditionsActivity;
+
+import javax.inject.Inject;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -30,16 +30,16 @@ public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
+    @Inject
+    ProductController pc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         RequestQueue requestName = Volley.newRequestQueue(this);
 
-        ProductController pc = new ProductController(
-                                    new ProductService(
-                                            new ProductDataAccess()
-                                    ));
+
 //        requestName.add(pc.getListingById("269955671"));  //working
 //        requestName.add(pc.getListingImages("269955671"));  //working
         requestName.add(pc.getActiveListings()); //25?
