@@ -14,13 +14,17 @@ and retrieve a list of the best suiting products that would definitely fit the o
 
 ## Developed With
  - ☕ Java ☕
- - ___and maybe something else ;)___
+ - 🤖 Android Studio 🤖
+### Used Dependencies
+ - 🏐 [Google Volley](https://github.com/google/volley) 🏐
+ - 🗡️ [Dagger-Hilt](https://dagger.dev/hilt/) 🗡️
+ - 🎃 [FasterXML-Jackson Lib.](https://github.com/FasterXML/jackson) 🎃
 
 ## App Prototype
 - Fully interactable application __prototype__ _v0.1_  can be viewed [here](https://framer.com/projects/COMP2160TEAM-H-PROJECT--p0gvUekLjlgAGOo90Tbt-9cWc5?node=jT9B7KLmS)
 
 ## Team
- - Eugene Lobkoff
- - Carlos Avilla
- - Zhuldyz Ilyassova
- - Alex Kirillov
+ - [Eugene Khozhainov](https://github.com/TitiMiti)
+ - [Carlos Avilla](https://github.com/CarlosAvila185)
+ - [Zhuldyz Ilyassova](https://github.com/Zhuldyz20)
+ - [Alex Kirillov](https://github.com/warferton)
