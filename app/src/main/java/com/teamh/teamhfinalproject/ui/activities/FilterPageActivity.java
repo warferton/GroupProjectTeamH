@@ -32,7 +32,7 @@
      private RadioGroup closeness;
      private Spinner catSpinner;
      //String[] categories = {"Beauty", "Books", "Clothing", "Electronics", "Handmade", "Kitchen", "Music", "Sports", "Toys", "Videogames"};
-    //category filter
+     //category filter
      private List<String> categories;
      private ArrayAdapter categoryAdapter;
      private String categoryString;

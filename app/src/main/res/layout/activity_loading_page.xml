@@ -39,11 +39,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/LoadingPageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FF0000"
+        android:background="@drawable/rb_pers"
         android:backgroundTint="#FF0000"
         android:text="@string/ButtonText_LoadingPage"
         app:layout_constraintBottom_toBottomOf="parent"
