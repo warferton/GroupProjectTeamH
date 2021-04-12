@@ -2,6 +2,7 @@ package com.teamh.teamhfinalproject.api.dao;
 
 import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +12,7 @@ import javax.inject.Inject;
 
 
 //Local DB Repo
-public class ProductDataAccess implements ProductsDAO{
+public class ProductDataAccess implements ProductsDAO, Serializable {
     private static List<EtsyProduct> productDB = new ArrayList<>();
     @Inject
     public ProductDataAccess() {}

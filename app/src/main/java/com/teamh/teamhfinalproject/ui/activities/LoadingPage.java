@@ -11,6 +11,7 @@ import com.teamh.teamhfinalproject.R;
 import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 import com.teamh.teamhfinalproject.api.service.ProductService;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -20,6 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint;
 @AndroidEntryPoint
 public class LoadingPage extends AppCompatActivity {
 
+    List<EtsyProduct> resultArray;
     public LoadingPage(){}
 
     @Inject
@@ -29,6 +31,8 @@ public class LoadingPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading_page);
+
+        Log.d("banana", resultArray.toString());
 
         try { this.getSupportActionBar().hide(); }
         catch (NullPointerException e){ e.printStackTrace();}
@@ -40,7 +44,6 @@ public class LoadingPage extends AppCompatActivity {
         String category = getIntent().getStringExtra("category");
         category = category.substring(0,category.length()-3);
 
-        List<EtsyProduct> resultArray;
         resultArray = productService.selectByDescription(category);
         Log.d("banana", resultArray.toString());
         if(resultArray.isEmpty())
@@ -54,15 +57,15 @@ public class LoadingPage extends AppCompatActivity {
         }
         Log.d("banana", resultArray.toString());
 
-        //Example line v
-//        Log.i("ALL PRODUCTS IN DB", productService.getAll().toString());
+        //Example line
+        Log.i("ALL PRODUCTS IN DB", productService.getAll().toString());
     }
 
 
     public void RunGiftListPage()
     {
         Intent intent = new Intent(this, GiftListPageActivity.class);
-
+        //intent.putExtra("object", (Serializable) resultArray.get(0));
         startActivity(intent);
     }
 }
