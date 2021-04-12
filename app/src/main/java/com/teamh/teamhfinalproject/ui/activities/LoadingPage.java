@@ -8,11 +8,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.teamh.teamhfinalproject.R;
+import com.teamh.teamhfinalproject.api.controller.ProductController;
 import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 import com.teamh.teamhfinalproject.api.service.ProductService;
 
-import java.io.Serializable;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -23,10 +25,18 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class LoadingPage extends AppCompatActivity {
 
     List<EtsyProduct> resultArray;
-    public LoadingPage(){}
 
     @Inject
+    public LoadingPage(){}
+
+    private RequestQueue request;
+
+    @Inject
+    ProductController pc;
     ProductService productService;
+
+    private String category;
+    double max_price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +49,18 @@ public class LoadingPage extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        String category = getIntent().getStringExtra("category");
+        productService = pc.getService();
+        category = getIntent().getStringExtra("category");
         category = category.substring(0, category.length() - 3);
+        max_price = Double.parseDouble(getIntent().getStringExtra("maxPrice"));
+
+        RunRequest();
+    }
+
+    public void RunRequest(){
+        request = Volley.newRequestQueue(this);
+        request.add(pc.getActiveListings(75, max_price, category)); // 100 is max
+
 
         resultArray = productService.selectByDescription(category);
 
@@ -52,23 +72,14 @@ public class LoadingPage extends AppCompatActivity {
         }
 
         if (resultArray.isEmpty()) {
-            Log.d("banana", "is empty");
-            Toast.makeText(getApplicationContext(),"Please select another category", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Oops. Sorry, We Couldn't Find you anything.\n Please select another category", Toast.LENGTH_SHORT).show();
         }
         else
         {
             Button button = findViewById(R.id.LoadingPageButton);
             button.setOnClickListener(v -> RunGiftListPage());
         }
-        Log.d("banana", String.valueOf(resultArray.isEmpty()));
-        Log.d("banana", String.valueOf(resultArray.size()));
-
-        Log.d("banana2", resultArray.toString());
-
-        //Example line
-        //Log.i("ALL PRODUCTS IN DB", productService.getAll().toString());
     }
-
 
     public void RunGiftListPage()
     {

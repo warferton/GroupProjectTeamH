@@ -6,8 +6,9 @@ import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Singleton;
 
-
+@Singleton
 public class ProductService {
     @Inject
     public ProductService(){}

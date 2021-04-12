@@ -22,20 +22,10 @@
 
  public class FilterPageActivity extends AppCompatActivity {
 
-     //seekbar for budget
-     private SeekBar seekBar;
      //declaring textView
      private TextView textView;
-     //variables of filters
-     private RadioGroup gender;
-     private RadioGroup age;
-     private RadioGroup closeness;
      private Spinner catSpinner;
-     //String[] categories = {"Beauty", "Books", "Clothing", "Electronics", "Handmade", "Kitchen", "Music", "Sports", "Toys", "Videogames"};
-     //category filter
-     private List<String> categories;
-     private ArrayAdapter categoryAdapter;
-     private String categoryString;
+     private double max_price;
      //finish button
      Button finishButton;
  
@@ -45,7 +35,7 @@
          setContentView(R.layout.activity_filter);
 
          //spinner with categories
-         catSpinner = (Spinner) findViewById(R.id.category_spinner);
+         catSpinner = findViewById(R.id.category_spinner);
          ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                  R.array.spinner_array, android.R.layout.simple_spinner_item);
          adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -56,33 +46,28 @@
              catch (NullPointerException e){ e.printStackTrace();}
  
           //finish button which redirects user to GifltList layout
-         Button finishButton = (Button)findViewById(R.id.finish_button);
-         finishButton.setOnClickListener(new View.OnClickListener() {
-             @Override
-             public void onClick(View v) {
-                 openGiftListPageActivity();
-             }
-         });
+         Button finishButton = findViewById(R.id.finish_button);
+         finishButton.setOnClickListener(v -> openGiftListPageActivity());
 
          //seekbar with budget
-         seekBar = findViewById(R.id.seekBar_budget);
+         //seekbar for budget
+         SeekBar seekBar = findViewById(R.id.seekBar_budget);
          seekBar.setProgress(5);
-         seekBar.incrementProgressBy(5);
-         seekBar.setMax(1995);
+         seekBar.incrementProgressBy(1);
+         seekBar.setMax(500);
          textView = findViewById(R.id.user_budget);
  
          seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
              @Override
              public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                 progress = progress + 5;
+                 progress = progress + 1;
+                 max_price = progress;
                  textView.setText("$ " + progress);
              }
- 
              @Override
              public void onStartTrackingTouch(SeekBar seekBar) {
  
              }
- 
              @Override
              public void onStopTrackingTouch(SeekBar seekBar) {
  
@@ -93,9 +78,10 @@
  
       //method for starting GiftListPageActivity to open GiftList layout
      public void openGiftListPageActivity() {
-         gender = findViewById(R.id.gender_group);
-         age = findViewById(R.id.age_group);
-         closeness = findViewById(R.id.closeness_group);
+         //variables of filters
+         RadioGroup gender = findViewById(R.id.gender_group);
+         RadioGroup age = findViewById(R.id.age_group);
+         RadioGroup closeness = findViewById(R.id.closeness_group);
  
          int checkedId_1 = gender.getCheckedRadioButtonId();
          int checkedId_2 = age.getCheckedRadioButtonId();
@@ -112,6 +98,7 @@
              {
              Intent intent = new Intent(this, LoadingPage.class);
              intent.putExtra("category", catSpinner.getSelectedItem().toString());
+             intent.putExtra("maxPrice", String.valueOf(max_price));
              startActivity(intent);
          }
      }
