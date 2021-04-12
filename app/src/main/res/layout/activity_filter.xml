@@ -99,7 +99,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingTop="20dp"
-                android:text="@string/user_list"
+                android:hint="@string/user_list"
                 android:textColor="#32151414"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
