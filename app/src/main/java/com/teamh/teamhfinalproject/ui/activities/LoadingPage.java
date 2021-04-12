@@ -61,6 +61,8 @@ public class LoadingPage extends AppCompatActivity {
             button.setOnClickListener(v -> RunGiftListPage());
         }
         Log.d("banana", String.valueOf(resultArray.isEmpty()));
+        Log.d("banana", String.valueOf(resultArray.size()));
+
         Log.d("banana2", resultArray.toString());
 
         //Example line
@@ -71,7 +73,11 @@ public class LoadingPage extends AppCompatActivity {
     public void RunGiftListPage()
     {
         Intent intent = new Intent(this, GiftListPageActivity.class);
-        intent.putExtra("object", resultArray.get(0).toString());
+        //intent.putExtra("object", resultArray.get(0).toString());
+        for(int i = 0; i < resultArray.size() ; i++)
+        {
+            intent.putExtra("object"+ i, resultArray.get(i).toString());
+        }
         startActivity(intent);
     }
 }
