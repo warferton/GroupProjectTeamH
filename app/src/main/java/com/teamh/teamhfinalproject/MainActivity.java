@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
 //        requestName.add(pc.getListingById("269955671"));  //working
 //        requestName.add(pc.getListingImages("269955671"));  //working
-        requestName.add(pc.getActiveListings()); //25?
+        requestName.add(pc.getActiveListings(75, 650.5, "girl")); // 100 is max
 
 
         setContentView(R.layout.activity_main);
