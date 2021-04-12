@@ -54,7 +54,6 @@ public class LoadingPage extends AppCompatActivity {
         if (resultArray.isEmpty()) {
             Log.d("banana", "is empty");
             Toast.makeText(getApplicationContext(),"Please select another category", Toast.LENGTH_SHORT).show();
-            Toast.makeText(getApplicationContext(),"Please select another category", Toast.LENGTH_SHORT).show();
         }
         else
         {
