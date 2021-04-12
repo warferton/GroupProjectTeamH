@@ -45,6 +45,7 @@ public class GiftListPageActivity extends AppCompatActivity {
         gifts.add(gift2);
         gifts.add(gift1);
         gifts.add(gift1);
+        gifts.add(gift2);
 
         GridView giftsGrid = (GridView) findViewById(R.id.giftsGridView);
         giftsGrid.setAdapter(new GiftsAdapter(this, gifts));
