@@ -51,15 +51,12 @@
 
     <RadioButton
         android:id="@+id/likeGift"
-        android:layout_width="34dp"
+        android:layout_width="31dp"
         android:layout_height="34dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:text="@string/radioButtonDef"
-        app:layout_constraintBottom_toTopOf="@+id/priceGift"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageGift"
-        android:button="@drawable/custom_radio_button"/>
+        app:layout_constraintTop_toBottomOf="@+id/imageGift" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
