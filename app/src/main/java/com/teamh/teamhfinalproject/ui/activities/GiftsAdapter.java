@@ -75,7 +75,7 @@ public class GiftsAdapter extends BaseAdapter {
         price = Double.toString(gift.getPrice());
         holder.priceGift.setText(price + " $");
         url = gift.getUrl();
-        Picasso.get().load(gift.getImgUrl()).resize(370, 220).centerCrop().fit().error(R.drawable.gift_default).into(holder.imageGift);
+        Picasso.get().load(gift.getImgUrl()).resize(370, 220).error(R.drawable.gift_default).into(holder.imageGift);
 
         holder.imageGift.setOnClickListener(new View.OnClickListener() {
             @Override
