@@ -63,9 +63,6 @@ public class LoadingPage extends AppCompatActivity {
         Log.d("banana", String.valueOf(resultArray.isEmpty()));
         Log.d("banana2", resultArray.toString());
 
-        Button button = findViewById(R.id.Debug);
-        button.setOnClickListener(v -> RunGiftListPageDebug());
-
         //Example line
         //Log.i("ALL PRODUCTS IN DB", productService.getAll().toString());
     }
@@ -75,12 +72,6 @@ public class LoadingPage extends AppCompatActivity {
     {
         Intent intent = new Intent(this, GiftListPageActivity.class);
         intent.putExtra("object", resultArray.get(0).toString());
-        startActivity(intent);
-    }
-
-    public void RunGiftListPageDebug()
-    {
-        Intent intent = new Intent(this, GiftListPageActivity.class);
         startActivity(intent);
     }
 }
