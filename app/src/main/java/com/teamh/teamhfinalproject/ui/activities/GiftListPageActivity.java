@@ -39,7 +39,6 @@ public class GiftListPageActivity extends AppCompatActivity {
         Intent objectIntent = getIntent();
         String object1 = objectIntent.getStringExtra("object");
 
-
         List<EtsyProduct> gifts = new ArrayList<>();
         gifts.add(IntentToEtsy(object1));//this is the new object
         gifts.add(gift1);
@@ -55,7 +54,7 @@ public class GiftListPageActivity extends AppCompatActivity {
         String title = item.substring(item.indexOf("title") + 7, item.indexOf("description") - 3);
         String description = item.substring(item.indexOf("description") + 13, item.indexOf("tags") -3);
         String url = item.substring(item.indexOf("url") + 5, item.indexOf("price") -2);
-        String price = item.substring(item.indexOf("price") + 7, item.indexOf("img_url") -2);
+        String price = item.substring(item.indexOf("price") + 6, item.indexOf("img_url") -2);
         String img_url = item.substring(item.indexOf("img_url") + 9, item.lastIndexOf("}") -2);
         EtsyProduct MyEP = new EtsyProduct(id,title,description, null,url,Double.parseDouble(price),img_url);
         return MyEP;
