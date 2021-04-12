@@ -6,4 +6,7 @@
     </style>
     <style name="likeShape" parent="">
     </style>
+    <style name="customRadioButton" parent="@android:style/Widget.CompoundButton.RadioButton">
+        <item name="android:button">@drawable/custom_radio_button</item>
+    </style>
 </resources>
