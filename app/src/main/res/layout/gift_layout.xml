@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/imageGift"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="370dp"
+        android:layout_height="220dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
@@ -24,11 +24,13 @@
 
     <TextView
         android:id="@+id/nameGift"
-        android:layout_width="135dp"
-        android:layout_height="46dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:ellipsize="end"
+        android:maxLines="2"
         android:text="@string/defaultName"
         app:layout_constraintBottom_toTopOf="@+id/priceGift"
         app:layout_constraintEnd_toStartOf="@+id/likeGift"
@@ -36,8 +38,8 @@
 
     <TextView
         android:id="@+id/priceGift"
-        android:layout_width="167dp"
-        android:layout_height="18dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"

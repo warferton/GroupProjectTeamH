@@ -43,9 +43,13 @@ public class GiftListPageActivity extends AppCompatActivity {
         //gifts.add(IntentToEtsy(object1));//this is the new object
         gifts.add(gift1);
         gifts.add(gift2);
+        gifts.add(gift1);
+        gifts.add(gift1);
 
         GridView giftsGrid = (GridView) findViewById(R.id.giftsGridView);
         giftsGrid.setAdapter(new GiftsAdapter(this, gifts));
+
+
     }
     public EtsyProduct IntentToEtsy(String word)
     {
