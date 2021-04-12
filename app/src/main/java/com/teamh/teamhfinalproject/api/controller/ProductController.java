@@ -16,14 +16,13 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 import static com.teamh.teamhfinalproject.api.ConnectionDetails.API_KEY;
 import static com.teamh.teamhfinalproject.api.ConnectionDetails.API_URL;
 
 //TODO Need to extra modify maybe
-@Singleton
 public class ProductController {
+
     @Inject
     public ProductController(){}
 
@@ -34,12 +33,9 @@ public class ProductController {
         return productService;
     }
 
-    public ProductService getService(){
-        return productService;
-    }
-
     public JsonObjectRequest getActiveListings(long limit, double max_price, String keyword) {
         return new JsonObjectRequest(
+//                https://openapi.etsy.com/v2/listings/active?api_key=fe9ajqvj4nsrgj2p7x5lnlc0&limit=1000&max_price=500&keywords=man
                 Request.Method.GET,
                 API_URL.getUri() + "listings/active" + API_KEY.getUri() + "&limit=" + limit +
                  "&max_price=" + max_price + "&keywords=" + keyword,
