@@ -34,6 +34,10 @@ public class ProductController {
         return productService;
     }
 
+    public ProductService getService(){
+        return productService;
+    }
+
     public JsonObjectRequest getActiveListings(long limit, double max_price, String keyword) {
         return new JsonObjectRequest(
                 Request.Method.GET,
