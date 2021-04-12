@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.GridView;
 import android.widget.TextView;
 import android.widget.ArrayAdapter;
@@ -36,16 +37,28 @@ public class GiftListPageActivity extends AppCompatActivity {
         EtsyProduct gift2 = new EtsyProduct("229", "1864 Civil War CSA Confederate States of America 20 Bill Note Money", "uo", tags, "https://www.etsy.com/listing/253290233/1864-civil-war-csa-confederate-states-of?ga_order=most_relevant&ga_search_type=all&ga_view_type=gallery&ga_search_query=&ref=sr_gallery-1-4&cns=1", 89.95, "https://i.etsystatic.com/8000189/r/il/54ac6a/3036384383/il_1588xN.3036384383_lo8g.jpg");
 
         Intent objectIntent = getIntent();
-        String ListObjects = objectIntent.getStringExtra("object");
+        String object1 = objectIntent.getStringExtra("object");
+
 
         List<EtsyProduct> gifts = new ArrayList<>();
+        gifts.add(IntentToEtsy(object1));//this is the new object
         gifts.add(gift1);
         gifts.add(gift2);
 
-
-
         GridView giftsGrid = (GridView) findViewById(R.id.giftsGridView);
         giftsGrid.setAdapter(new GiftsAdapter(this, gifts));
+    }
+    public EtsyProduct IntentToEtsy(String word)
+    {
+        String item = word;
+        String id = item.substring(item.indexOf("id") + 4, item.indexOf("id") + 13);
+        String title = item.substring(item.indexOf("title") + 7, item.indexOf("description") - 3);
+        String description = item.substring(item.indexOf("description") + 13, item.indexOf("tags") -3);
+        String url = item.substring(item.indexOf("url") + 5, item.indexOf("price") -2);
+        String price = item.substring(item.indexOf("price") + 7, item.indexOf("img_url") -2);
+        String img_url = item.substring(item.indexOf("img_url") + 9, item.lastIndexOf("}") -2);
+        EtsyProduct MyEP = new EtsyProduct(id,title,description, null,url,Double.parseDouble(price),img_url);
+        return MyEP;
     }
 }
 
