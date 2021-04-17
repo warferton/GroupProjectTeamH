@@ -11,7 +11,6 @@ import java.util.List;
  * Simple placeholder object to represent
  * retrieved products.
  *
- * Subject to change
  */
 public class EtsyProduct {
     private String id;

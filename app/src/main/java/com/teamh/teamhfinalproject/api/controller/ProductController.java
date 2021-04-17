@@ -4,7 +4,6 @@ import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 import com.teamh.teamhfinalproject.api.models.JsonParser;
 import com.teamh.teamhfinalproject.api.service.ProductService;
 
@@ -16,44 +15,52 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import static com.teamh.teamhfinalproject.api.ConnectionDetails.API_KEY;
 import static com.teamh.teamhfinalproject.api.ConnectionDetails.API_URL;
 
 //TODO Need to extra modify maybe
 public class ProductController {
 
-    private ProductService productService;
+    @Inject
+    public ProductController(){}
 
-    public ProductController(ProductService productService) {
-        this.productService = productService;
+    @Inject
+    ProductService productService;
+
+    public ProductService getService(){
+        return productService;
     }
 
-    public JsonObjectRequest getActiveListings() {
+    public JsonObjectRequest getActiveListings(long limit, double max_price, String keyword) {
         return new JsonObjectRequest(
+//                https://openapi.etsy.com/v2/listings/active?api_key=fe9ajqvj4nsrgj2p7x5lnlc0&limit=1000&max_price=500&keywords=man
                 Request.Method.GET,
-                API_URL + "listings/active" + API_KEY,
+                API_URL.getUri() + "listings/active" + API_KEY.getUri() + "&limit=" + limit +
+                 "&max_price=" + max_price + "&keywords=" + keyword,
                 null,
-                null,
-                error -> Log.d("restapi", error.toString())
-        );
-    }
-    
-    public JsonObjectRequest getStoreInventory(String store_id) {
-       return new JsonObjectRequest(
-                Request.Method.GET,
-                API_URL.getUri() + "listings/" + store_id + "/inventory" + API_KEY.getUri(),
-               null,
-               null,
-                error -> Log.d("restapi", error.toString())
-        );
-    }
-
-    public JsonObjectRequest getBuyerTaxonomy() {
-        return new JsonObjectRequest(
-                Request.Method.GET,
-                API_URL.getUri() + "taxonomy/buyer/get" + API_KEY.getUri(),
-                null,
-                null,
+                response ->{
+                    try {
+                        JSONArray product_array = response.getJSONArray("results");
+                        JSONArray tags_array;
+                        for(int i=0; i < product_array.length(); i++){
+                            try {
+                                tags_array = product_array.getJSONObject(i).getJSONArray("tags");
+                            }catch (Exception e){
+                                tags_array = new JSONArray();
+                                Log.e("Response Processing", "Object has no 'tags' property.");
+                            }
+                            productService.add(
+                                    JsonParser.parseProduct(product_array.getJSONObject(i).toString(),
+                                            tags_array)
+                            );
+                        }
+                        Log.i("Success | Products got", productService.getAll().size() + "");
+                    } catch (IOException | JSONException e) {
+                        e.printStackTrace();
+                    }
+                },
                 error -> Log.d("restapi", error.toString())
         );
     }
@@ -67,15 +74,13 @@ public class ProductController {
 
                     try {
                         JSONArray product_array = response.getJSONArray("results");
-                        List<EtsyProduct> products = new ArrayList<>();
-                        List<String> tags = new ArrayList<>();
                         for(int i=0; i < product_array.length(); i++){
-                            products.add(
+                            productService.add(
                                     JsonParser.parseProduct(product_array.getJSONObject(i).toString(),
                                     product_array.getJSONObject(i).getJSONArray("tags"))
                             );
                         }
-                        Log.i("Success", products.toString());
+                        Log.i("Success", productService.toString());
                     } catch (IOException | JSONException e) {
                         e.printStackTrace();
                     }

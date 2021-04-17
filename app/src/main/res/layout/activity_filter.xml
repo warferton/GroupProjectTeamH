@@ -8,21 +8,15 @@
     tools:context=".ui.activities.FilterPageActivity"
     android:orientation="vertical"
     android:scrollbarFadeDuration="150"
+    android:background="@drawable/gift_pattern"
+    android:backgroundTint="#CBFFFFFF"
+    android:backgroundTintMode="src_over"
    >
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:background="#FD0000">
-
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="28dp"
-            android:layout_height="26dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="4dp"
-            android:clickable="true"
-            app:srcCompat="@drawable/nav" />
 
         <View
             android:id="@+id/nav_divider"
@@ -108,7 +102,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:paddingTop="20dp"
-                android:text="@string/user_list"
+                android:hint="@string/user_list"
                 android:textColor="#32151414"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -454,19 +448,19 @@
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="#805555" />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/finish_button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
-                android:background="#FF0000"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/rb_pers"
                 android:rotationX="0"
                 android:rotationY="0"
-                android:shadowColor="#FFFFFF"
                 android:text="@string/finish"
+                android:textColor="@drawable/txt_file"
                 android:textAlignment="center"
-                android:textColor="@color/black"
                 android:textStyle="bold" />
 
 

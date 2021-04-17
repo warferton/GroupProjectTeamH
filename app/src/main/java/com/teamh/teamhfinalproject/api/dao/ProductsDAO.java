@@ -5,8 +5,11 @@ import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 import java.util.List;
 
 //Data Accessor Interface
-//TODO: maybe add more methods later
 public interface ProductsDAO {
+
+//    List<EtsyProduct> selectByPrice(String price);
+
+    List<EtsyProduct> getAll();
 
     List<EtsyProduct> selectByTag(String product_tag);
 

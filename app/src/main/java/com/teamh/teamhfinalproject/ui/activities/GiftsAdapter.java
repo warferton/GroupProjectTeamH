@@ -1,8 +1,10 @@
 package com.teamh.teamhfinalproject.ui.activities;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.squareup.picasso.Picasso;
 import com.teamh.teamhfinalproject.R;
 import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 
@@ -28,6 +31,9 @@ public class GiftsAdapter extends BaseAdapter {
     private List<EtsyProduct> gifts;
     private LayoutInflater layoutInflater;
     private String price;
+    private String url;
+    private Uri uri;
+    private String defaultUrl = "https://miro.medium.com/max/800/1*hFwwQAW45673VGKrMPE2qQ.png";
 
     public GiftsAdapter(Context context, List<EtsyProduct> gifts){
         this.context = context;
@@ -67,8 +73,19 @@ public class GiftsAdapter extends BaseAdapter {
         EtsyProduct gift = this.gifts.get(position);
         holder.nameGift.setText(gift.getTitle());
         price = Double.toString(gift.getPrice());
-        holder.priceGift.setText(price);
-        new DownLoadImageTask(holder.imageGift).execute(gift.getImgUrl());
+        holder.priceGift.setText(price + " $");
+        url = gift.getUrl();
+        Picasso.get().load(gift.getImgUrl()).resize(370, 220).error(R.drawable.gift_default).into(holder.imageGift);
+
+        holder.imageGift.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v){
+                url = gift.getUrl();
+                uri = Uri.parse(url); // missing 'http://' will cause crashed
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                context.startActivity(intent);
+            }
+        });
 
         return convertView;
     }
@@ -80,41 +97,4 @@ public class GiftsAdapter extends BaseAdapter {
         RadioButton likeGift;
     }
 }
-
-class DownLoadImageTask extends AsyncTask<String,Void, Bitmap> {
-    ImageView imageView;
-
-    public DownLoadImageTask(ImageView imageView){
-        this.imageView = imageView;
-    }
-
-    /*
-        doInBackground(Params... params)
-            Override this method to perform a computation on a background thread.
-     */
-    protected Bitmap doInBackground(String...urls){
-        String urlOfImage = urls[0];
-        Bitmap logo = null;
-        try{
-            InputStream is = new URL(urlOfImage).openStream();
-                /*
-                    decodeStream(InputStream is)
-                        Decode an input stream into a bitmap.
-                 */
-            logo = BitmapFactory.decodeStream(is);
-        }catch(Exception e){ // Catch the download exception
-            e.printStackTrace();
-        }
-        return logo;
-    }
-
-    /*
-        onPostExecute(Result result)
-            Runs on the UI thread after doInBackground(Params...).
-     */
-    protected void onPostExecute(Bitmap result){
-        imageView.setImageBitmap(result);
-    }
-}
-
 

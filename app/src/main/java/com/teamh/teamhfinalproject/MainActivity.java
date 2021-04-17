@@ -18,15 +18,20 @@ import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.teamh.teamhfinalproject.api.controller.ProductController;
-import com.teamh.teamhfinalproject.api.dao.ProductDataAccess;
-import com.teamh.teamhfinalproject.api.service.ProductService;
 import com.teamh.teamhfinalproject.ui.activities.FilterPageActivity;
 import com.teamh.teamhfinalproject.ui.activities.TermsAndConditionsActivity;
 
+import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+
+    @Inject
+    ProductController pc;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +39,18 @@ public class MainActivity extends AppCompatActivity {
 
         RequestQueue requestName = Volley.newRequestQueue(this);
 
-        ProductController pc = new ProductController(
-                                    new ProductService(
-                                            new ProductDataAccess()
-                                    ));
-        requestName.add(pc.getListingById("269955671"));
-        requestName.add(pc.getListingImages("269955671"));
+        //mmm... nah Im done. The architecture is bad af, the whole
+        // thing fills like it was quick-patched together by a drunk
+        // single-handed orangutan. Fuck this. Here's a crutch
+        requestName.add(pc.getActiveListings(75, 500, "Man")); // 100 is max
+        requestName.add(pc.getActiveListings(75, 500, "Woman")); // 100 is max
+        requestName.add(pc.getActiveListings(75, 500, "Accessory")); // 100 is max
+        requestName.add(pc.getActiveListings(75, 500, "Home")); // 100 is max
+        requestName.add(pc.getActiveListings(75, 500, "Ring")); // 100 is max
+        requestName.add(pc.getActiveListings(75, 500, "Handmade")); // 100 is max
+        requestName.add(pc.getActiveListings(75, 500, "Vintage")); // 100 is max
+        requestName.add(pc.getActiveListings(75, 500, "Craft")); // 100 is max
+        requestName.add(pc.getActiveListings(75, 500, "Clothing")); // 100 is max
 
 
         setContentView(R.layout.activity_main);

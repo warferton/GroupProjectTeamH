@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gift_pattern"
     tools:context=".ui.activities.LoadingPage">
 
     <androidx.appcompat.widget.Toolbar
@@ -18,8 +19,8 @@
 
     <ImageView
         android:id="@+id/LoadingPageGif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="413dp"
+        android:layout_height="505dp"
         android:contentDescription="@string/GiftDescription"
         android:src="@drawable/giftbox"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,11 +40,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/LoadingPageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#FF0000"
+        android:background="@drawable/rb_pers"
         android:backgroundTint="#FF0000"
         android:text="@string/ButtonText_LoadingPage"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -51,4 +52,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/LoadingPageGif"
         app:layout_constraintVertical_bias="0.407" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

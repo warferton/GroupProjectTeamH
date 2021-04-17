@@ -2,15 +2,19 @@ package com.teamh.teamhfinalproject.api.dao;
 
 import com.teamh.teamhfinalproject.api.models.EtsyProduct;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-//Local DB Repo
-public class ProductDataAccess implements ProductsDAO{
-    private static List<EtsyProduct> productDB = new ArrayList<>();
+import javax.inject.Inject;
 
+
+//Local DB Repo
+public class ProductDataAccess implements ProductsDAO, Serializable {
+    private static List<EtsyProduct> productDB = new ArrayList<>();
+    @Inject
     public ProductDataAccess() {}
 
     @Override
@@ -53,5 +57,10 @@ public class ProductDataAccess implements ProductsDAO{
 
         //No object found
         return -1;
+    }
+
+    @Override
+    public List<EtsyProduct> getAll() {
+        return productDB;
     }
 }
